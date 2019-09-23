@@ -20,8 +20,6 @@ using DevExpress.Data;
 using DevExpress.Printing;
 using DevExpress.Sparkline;
 using DevExpress.XtraSplashScreen;
-using DevExpress.Sparkline.Core;
-using DevExpress.Printing.Core;
 using DevExpress.XtraBars;
 using PS3ManagerAPI;
 
@@ -312,6 +310,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         #region definitions
         public static PS3ManagerAPI.PS3MAPI PS3M_API = new PS3ManagerAPI.PS3MAPI();
+        WebClient webClientDB = new WebClient();
         public string Temperature = "";
         private bool ftpconnected = false;
         private Random Rand;
@@ -332,6 +331,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
         string dlplayerkpdb = "dlplayerkpdb.txt";
         string dldarknetst = "dldarknetst.txt";
         string dldarknetcbr = "dldarknetcbr.txt";
+        string dlspycbr = "dlspycbr.txt";
+        string dlpastadexcbr = "dlpastadexcbr.txt";
+        string dlhfw = "dlhfw.txt";
+        string dloverst = "dloverflowstandard.txt";
+        string dlovercbr = "dloverflowcbr.txt";
+        string dlovercbrnobd = "dloverflowcbrnobd.txt";
+        string dloverdb = "dloverflowdb.txt";
 
         string vFerroxstandard = "ferroxstandard.txt";
         string vFerroxcobra = "ferroxcobra.txt";
@@ -346,6 +352,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
         string vPlayerkpdb = "playerkpdb.txt";
         string vDarknetstandard = "darknetstandard.txt";
         string vDarknetcobra = "darknetcobra.txt";
+        string vSpycobra = "spycobra.txt";
+        string vPastaDEXcobra = "pastadexcobra.txt";
+        string vhfw = "hfw.txt";
+        string vOverst = "overflowstandard.txt";
+        string vOvercbr = "overflowcobra.txt";
+        string vOvercbrnobd = "overflowcobranobd.txt";
+        string vOverdb = "overflowdualboot.txt";
         #endregion
 
         #region AutoUpdate
@@ -367,7 +380,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 WebClient wc = new WebClient();
                 var UI = wc.DownloadString(URL + ToolVersion);
                 var CL = wc.DownloadString(URL + Changelog);
-                if (UI.Contains("2.0.2"))
+                if (UI.Contains("2.1.0"))
                 {
 
                 }
@@ -407,7 +420,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
             if (CheckForInternetConnection() == true)
             {
-                if (UI.Contains("2.0.2"))
+                if (UI.Contains("2.1.0"))
                 {
                     XtraMessageBox.Show("No Updates Available for now.", "No Updates", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -489,7 +502,466 @@ namespace PS3_LezZo_Manager_Tool_xNew
             }
         }
         #endregion
-        
+
+        #region Gen
+        private static class GeneratorS
+        {
+            private static Random rands = new Random();
+
+            public static string Part1()
+            {
+                return "00000001008";
+            }
+
+            public static char Part2()
+            {
+                char[] chArray = "58C3A".ToCharArray();
+                int index = GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part3()
+            {
+                return "000";
+            }
+
+            public static char Part4()
+            {
+                char[] chArray = "5B".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part5()
+            {
+                return "140";
+            }
+
+            public static char Part6()
+            {
+                char[] chArray = "24D60318537".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part7()
+            {
+                char[] chArray = "B863DE257C1".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part8()
+            {
+                char[] chArray = "3EA7FB596C".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part9()
+            {
+                char[] chArray = "D304A5C82E".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par1()
+            {
+                char[] chArray = "3B21CE7F".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par2()
+            {
+                char[] chArray = "86C4F90B12".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par3()
+            {
+                char[] chArray = "29CD153A67".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par4()
+            {
+                char[] chArray = "1A3EDB98".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par5()
+            {
+                char[] chArray = "480A2FB".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par6()
+            {
+                char[] chArray = "9F75A8BE64D".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par7()
+            {
+                char[] chArray = "897C1AFE".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par8()
+            {
+                char[] chArray = "A7FB49683C".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Par9()
+            {
+                char[] chArray = "853662ACBFED".ToCharArray();
+                int index = Form1.GeneratorS.rands.Next(chArray.Length);
+                return chArray[index];
+            }
+        }
+
+        private static class GeneratorP
+        {
+            private static Random randP = new Random();
+
+            public static char Part1()
+            {
+                char[] chArray = "7B1CA08".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part10()
+            {
+                char[] chArray = "19CD153A67".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part11()
+            {
+                char[] chArray = "1A3EDB98".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part12()
+            {
+                char[] chArray = "480A2FB".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part13()
+            {
+                char[] chArray = "9F75A8BE64D".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part14()
+            {
+                char[] chArray = "897C1AFE".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part15()
+            {
+                char[] chArray = "A7FB49683C".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part16()
+            {
+                char[] chArray = "85362ACBFED".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part17()
+            {
+                char[] chArray = "B9014AC7T".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part18()
+            {
+                char[] chArray = "0CB438AD".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part19()
+            {
+                char[] chArray = "B019CA".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part20()
+            {
+                char[] chArray = "A12630BDE".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part21()
+            {
+                char[] chArray = "FC5E470".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part2()
+            {
+                char[] chArray = "109D".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part3()
+            {
+                char[] chArray = "217BC".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part3a()
+            {
+                char[] chArray = "58C".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part3b()
+            {
+                return "000";
+            }
+
+            public static char Part3c()
+            {
+                char[] chArray = "5BA0".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part3d()
+            {
+                return "140";
+            }
+
+            public static char Part3e()
+            {
+                char[] chArray = "698A1".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part3f()
+            {
+                char[] chArray = "1092ED".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part3g()
+            {
+                char[] chArray = "CN8379R".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part4()
+            {
+                char[] chArray = "24D60318537".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part5()
+            {
+                char[] chArray = "B863DE257C1".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part6()
+            {
+                char[] chArray = "3EA7FB8596C".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part7()
+            {
+                char[] chArray = "D304A5C82E".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part8()
+            {
+                char[] chArray = "3B21CE7F".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part9()
+            {
+                char[] chArray = "86C4f90B12".ToCharArray();
+                int index = randP.Next(chArray.Length);
+                return chArray[index];
+            }
+        }
+
+        private static class Generator
+        {
+            private static Random rand = new Random();
+
+            public static string Part1()
+            {
+                return "0000000";
+            }
+
+            public static char Part10()
+            {
+                char[] chArray = "19CD153A67".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part11()
+            {
+                char[] chArray = "1A3EDB98".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part12()
+            {
+                char[] chArray = "480A2FB".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part13()
+            {
+                char[] chArray = "9F75A8BE64D".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part14()
+            {
+                char[] chArray = "897C1AFE".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part15()
+            {
+                char[] chArray = "A7FB49683C".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part16()
+            {
+                char[] chArray = "85362ACBFED".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part2()
+            {
+                return "100";
+            }
+
+            public static char Part3()
+            {
+                return '8';
+            }
+
+            public static char Part3a()
+            {
+                char[] chArray = "58C3A".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part3b()
+            {
+                return "000";
+            }
+
+            public static char Part3c()
+            {
+                char[] chArray = "5B".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static string Part3d()
+            {
+                return "140";
+            }
+
+            public static char Part4()
+            {
+                char[] chArray = "24D60318537".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part5()
+            {
+                char[] chArray = "B863DE257C1".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part6()
+            {
+                char[] chArray = "3EA7FB8596C".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part7()
+            {
+                char[] chArray = "D304A5C82E".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part8()
+            {
+                char[] chArray = "3B21CE7F".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+
+            public static char Part9()
+            {
+                char[] chArray = "86C4F90B12".ToCharArray();
+                int index = rand.Next(chArray.Length);
+                return chArray[index];
+            }
+        }
+        #endregion
+
         private void Form1_Load(object sender, EventArgs e)
         {
             for (int i = 0; i < 20; i++)
@@ -518,19 +990,26 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 var playerkpdb = wc.DownloadString(URL + vPlayerkpdb);
                 var darknetst = wc.DownloadString(URL + vDarknetstandard);
                 var darknetcbr = wc.DownloadString(URL + vDarknetcobra);
+                var spycbr = wc.DownloadString(URL + vSpycobra);
+                var pastacbr = wc.DownloadString(URL + vPastaDEXcobra);
+                var hfw = wc.DownloadString(URL + vhfw);
+                var overst = wc.DownloadString(URL + vOverst);
+                var overcbr = wc.DownloadString(URL + vOvercbr);
+                var overcbrnobd = wc.DownloadString(URL + vOvercbrnobd);
+                var overdb = wc.DownloadString(URL + vOverdb);
 
                 var mm = wc.DownloadString(URL + multiman);
                 var mmss = wc.DownloadString(URL + multiman_singstar);
                 var wm = wc.DownloadString(URL + webman);
-                var wmrbg = wc.DownloadString(URL + webmanrbg);
-                var wmmtl = wc.DownloadString(URL + webmanmtl);
+                //var wmrbg = wc.DownloadString(URL + webmanrbg);
+                //var wmmtl = wc.DownloadString(URL + webmanmtl);
                 var iris_stealth = wc.DownloadString(URL + irisman_stealth);
                 var psnp = wc.DownloadString(URL + psnpatch);
                 var sen = wc.DownloadString(URL + senenabler);
                 var prep = wc.DownloadString(URL + prepntfs);
                 var store = wc.DownloadString(URL + hbstore);
                 var mamb = wc.DownloadString(URL + mamba);
-                var wm_theme = wc.DownloadString(URL + webman_themes);
+                //var wm_theme = wc.DownloadString(URL + webman_themes);
                 var manag = wc.DownloadString(URL + managunz);
                 var artem = wc.DownloadString(URL + artemis);
                 var iris = wc.DownloadString(URL + Irisman);
@@ -559,37 +1038,44 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 comboBoxEdit13.Properties.Items.Insert(14, playerkpdb);
                 comboBoxEdit13.Properties.Items.Insert(15, darknetst);
                 comboBoxEdit13.Properties.Items.Insert(16, darknetcbr);
+                comboBoxEdit13.Properties.Items.Insert(17, spycbr);
+                comboBoxEdit13.Properties.Items.Insert(18, pastacbr);
+                comboBoxEdit13.Properties.Items.Insert(19, hfw);
+                comboBoxEdit13.Properties.Items.Insert(20, overst);
+                comboBoxEdit13.Properties.Items.Insert(21, overcbr);
+                comboBoxEdit13.Properties.Items.Insert(22, overcbrnobd);
+                comboBoxEdit13.Properties.Items.Insert(23, overdb);
 
                 comboBoxEdit5.Properties.Items.Insert(0, "MultiMAN v" + mm);
                 comboBoxEdit5.Properties.Items.Insert(1, "MultiMAN Singstar Build " + mmss);
                 comboBoxEdit5.Properties.Items.Insert(2, "webMAN MOD v" + wm);
-                comboBoxEdit5.Properties.Items.Insert(3, "webMAN MOD Theme Rebugification v" + wmrbg);
-                comboBoxEdit5.Properties.Items.Insert(4, "webMAN MOD Theme Metalification v" + wmmtl);
-                comboBoxEdit5.Properties.Items.Insert(5, "IrisMAN STEALTH v" + iris_stealth);
-                comboBoxEdit5.Properties.Items.Insert(6, "PsnPatch v" + psnp);
-                comboBoxEdit5.Properties.Items.Insert(7, "SEN Enabler v" + sen);
-                comboBoxEdit5.Properties.Items.Insert(8, "PrepNTFS v" + prep);
-                comboBoxEdit5.Properties.Items.Insert(9, "HomebrewStore Installer v" + store);
-                comboBoxEdit5.Properties.Items.Insert(10, "MAMBA PRX Loader v" + mamb);
-                comboBoxEdit5.Properties.Items.Insert(11, "PSNinja v4");
-                comboBoxEdit5.Properties.Items.Insert(12, "webMAN MOD Theme Anonymous " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(13, "webMAN MOD Theme Basic White " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(14, "webMAN MOD Theme Black Steel " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(15, "webMAN MOD Theme inFamous " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(16, "webMAN MOD Theme iOS " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(17, "webMAN MOD Theme REBUG " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(18, "webMAN MOD Theme Red DarkneSs " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(19, "webMAN MOD Theme Steel Style " + wm_theme);
-                comboBoxEdit5.Properties.Items.Insert(20, "ManaGunz v" + manag);
-                comboBoxEdit5.Properties.Items.Insert(21, "Artemis " + artem);
-                comboBoxEdit5.Properties.Items.Insert(22, "IrisMAN v" + iris);
-                comboBoxEdit5.Properties.Items.Insert(23, "Play Manager v" + playm);
-                comboBoxEdit5.Properties.Items.Insert(24, "Gamesonic v" + gsman);
-                comboBoxEdit5.Properties.Items.Insert(25, "Control Console API v" + ccontrolapi);
-                comboBoxEdit5.Properties.Items.Insert(26, "sMAN v" + smandeank);
-                comboBoxEdit5.Properties.Items.Insert(27, "MultiMAN SS Cybm Build " + mmssrcybm);
-                comboBoxEdit5.Properties.Items.Insert(28, "OpenPS3FTP " + openftp);
-                comboBoxEdit5.Properties.Items.Insert(29, "XMBM+ 2k17 " + xmbm2k);
+                //comboBoxEdit5.Properties.Items.Insert(3, "webMAN MOD Theme Rebugification v" + wmrbg);
+                //comboBoxEdit5.Properties.Items.Insert(4, "webMAN MOD Theme Metalification v" + wmmtl);
+                comboBoxEdit5.Properties.Items.Insert(3, "IrisMAN STEALTH v" + iris_stealth);
+                comboBoxEdit5.Properties.Items.Insert(4, "PsnPatch v" + psnp);
+                comboBoxEdit5.Properties.Items.Insert(5, "SEN Enabler v" + sen);
+                comboBoxEdit5.Properties.Items.Insert(6, "PrepNTFS v" + prep);
+                comboBoxEdit5.Properties.Items.Insert(7, "HomebrewStore Installer v" + store);
+                comboBoxEdit5.Properties.Items.Insert(8, "MAMBA PRX Loader v" + mamb);
+                comboBoxEdit5.Properties.Items.Insert(9, "PSNinja v4");
+                //comboBoxEdit5.Properties.Items.Insert(10, "webMAN MOD Theme Anonymous " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(11, "webMAN MOD Theme Basic White " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(12, "webMAN MOD Theme Black Steel " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(15, "webMAN MOD Theme inFamous " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(16, "webMAN MOD Theme iOS " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(17, "webMAN MOD Theme REBUG " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(18, "webMAN MOD Theme Red DarkneSs " + wm_theme);
+                //comboBoxEdit5.Properties.Items.Insert(19, "webMAN MOD Theme Steel Style " + wm_theme);
+                comboBoxEdit5.Properties.Items.Insert(10, "ManaGunz v" + manag);
+                comboBoxEdit5.Properties.Items.Insert(11, "Artemis " + artem);
+                comboBoxEdit5.Properties.Items.Insert(12, "IrisMAN v" + iris);
+                comboBoxEdit5.Properties.Items.Insert(13, "Play Manager v" + playm);
+                comboBoxEdit5.Properties.Items.Insert(14, "Gamesonic v" + gsman);
+                comboBoxEdit5.Properties.Items.Insert(15, "Control Console API v" + ccontrolapi);
+                comboBoxEdit5.Properties.Items.Insert(16, "sMAN v" + smandeank);
+                comboBoxEdit5.Properties.Items.Insert(17, "MultiMAN SS Cybm Build " + mmssrcybm);
+                comboBoxEdit5.Properties.Items.Insert(18, "OpenPS3FTP " + openftp);
+                comboBoxEdit5.Properties.Items.Insert(19, "XMBM+ 2k17 " + xmbm2k);
                 CheckforUpdates();
                 if (splashScreenManager2.IsSplashFormVisible == true)
                 {
@@ -619,7 +1105,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 if (!PS3M_API.ConnectTarget(txtB_Ip.Text, Convert.ToInt32(7887)))
                 {
-                    XtraMessageBox.Show("Impossible to connect, check your Ps3 IP! \nNote: webMAN MOD is needed on your Console! \nOr maybe your Internet connection does not work.", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    XtraMessageBox.Show("Impossible to connect, check your PS3 IP! \nNote: webMAN MOD is needed on your Console! \nOr maybe your Internet connection does not work.", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     labelControl2.Text = "PS3MAPI Not Connected";
                 }
                 else
@@ -666,7 +1152,43 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            
+            StringBuilder StringBuilder = new StringBuilder();
+            StringBuilder.Append(Form1.GeneratorS.Part1());
+            StringBuilder.Append(Form1.GeneratorS.Part2());
+            StringBuilder.Append(Form1.GeneratorS.Part3());
+            StringBuilder.Append(Form1.GeneratorS.Part4());
+            StringBuilder.Append(Form1.GeneratorS.Part5());
+            StringBuilder.Append(Form1.GeneratorS.Part6());
+            StringBuilder.Append(Form1.GeneratorS.Part7());
+            StringBuilder.Append(Form1.GeneratorS.Part8());
+            StringBuilder.Append(Form1.GeneratorS.Part9());
+            StringBuilder.Append(Form1.GeneratorS.Par1());
+            StringBuilder.Append(Form1.GeneratorS.Par2());
+            StringBuilder.Append(Form1.GeneratorS.Par3());
+            StringBuilder.Append(Form1.GeneratorS.Par4());
+            StringBuilder.Append(Form1.GeneratorS.Par5());
+            StringBuilder.Append(Form1.GeneratorS.Par6());
+            StringBuilder.Append(Form1.GeneratorS.Par7());
+            StringBuilder.Append(Form1.GeneratorS.Par8());
+            StringBuilder.Append(Form1.GeneratorS.Par9());
+            textEdit5.Text = StringBuilder.ToString();
+
+            if (textEdit5.Text.Length == 32)
+            {
+                try
+                {
+                    PS3M_API.PS3.SetIDPS(textEdit5.Text);
+                    PS3M_API.PS3.Notify("IDPS Changed!");
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                XtraMessageBox.Show("Invalid ConsoleID!", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -826,13 +1348,14 @@ namespace PS3_LezZo_Manager_Tool_xNew
         private void simpleButton9_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate(txtB_Ip.Text + "/refresh.ps3");
+            webBrowser1.Navigate(txtB_Ip.Text + "/wait.ps3?<3>");
             webBrowser1.Navigate(txtB_Ip.Text + "/restart.ps3");
         }
 
         private void simpleButton15_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate(txtB_Ip.Text + "/recovery.ps3");
-            XtraMessageBox.Show("Sometimes it doesen't work.. Don't know why :)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            XtraMessageBox.Show("Works only on NOR Flash.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
 
         private void simpleButton18_Click(object sender, EventArgs e)
@@ -901,7 +1424,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void simpleButton25_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(txtB_Ip.Text);
+            System.Diagnostics.Process.Start(txtB_Ip.Text + "/install.ps3");
         }
 
         private void cb_Syscall_8_CheckedChanged(object sender, EventArgs e)
@@ -1187,14 +1710,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
             pictureBox22.Visible = false;
             pictureBox108.Visible = false;
             pictureBox109.Visible = false;
-            pictureBox110.Visible = false;
-            pictureBox111.Visible = false;
-            pictureBox112.Visible = false;
-            pictureBox113.Visible = false;
-            pictureBox114.Visible = false;
-            pictureBox115.Visible = false;
-            pictureBox116.Visible = false;
-            pictureBox117.Visible = false;
             pictureBox118.Visible = false;
             pictureBox119.Visible = false;
             pictureBox122.Visible = false;
@@ -1228,8 +1743,8 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         string URL = "https://www.cybermodding.it/Manager_Tool/";
         string webman = "webman.txt";
-        string webmanrbg = "webmanrbg.txt";
-        string webmanmtl = "webmanmtl.txt";
+        //string webmanrbg = "webmanrbg.txt";
+        //string webmanmtl = "webmanmtl.txt";
         string multiman = "multiman.txt";
         string multiman_singstar = "multiman_singstar.txt";
         string multiman_singstar_cybm = "multiman_singstar_cybm.txt";
@@ -1244,7 +1759,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
         string artemis = "artemis.txt";
         string managunz = "managunz.txt";
         string playmanager = "playmanager.txt";
-        string webman_themes = "webman_themes";
+        //string webman_themes = "webman_themes";
         string gamesonic = "gamesonic.txt";
         string ccapi = "ccapi.txt";
         string ps3ftp = "openps3ftp.txt";
@@ -1308,7 +1823,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                         var UI = webClient.DownloadString(URL + webman);
                         DownProgress.EditValue = 0;
                         webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/webMAN_MOD_" + UI + "_Updater.pkg"), @"downloads/webMAN_MOD_" + UI + "_Updater.pkg");
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/webMAN_MOD_" + UI + "_Installer.pkg"), @"downloads/webMAN_MOD_" + UI + "_Installer.pkg");
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
                     }
                     catch (Exception ex)
@@ -1318,42 +1833,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 }
 
                 if (comboBoxEdit5.SelectedIndex == 3)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webmanrbg);
-                        DownProgress.EditValue = 0;
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/webMAN_MOD_" + UI + "_Updater_rebugification_theme.pkg"), @"downloads/webMAN_MOD_" + UI + "_Updater_rebugification_theme.pkg");
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 4)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webmanmtl);
-                        DownProgress.EditValue = 0;
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/webMAN_MOD_" + UI + "_Updater_metalification_theme.pkg"), @"downloads/webMAN_MOD_" + UI + "_Updater_metalification_theme.pkg");
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 5)
                 {
                     try
                     {
@@ -1371,7 +1850,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 6)
+                if (comboBoxEdit5.SelectedIndex == 4)
                 {
                     try
                     {
@@ -1389,7 +1868,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 7)
+                if (comboBoxEdit5.SelectedIndex == 5)
                 {
                     try
                     {
@@ -1407,7 +1886,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 8)
+                if (comboBoxEdit5.SelectedIndex == 6)
                 {
                     try
                     {
@@ -1425,7 +1904,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 9)
+                if (comboBoxEdit5.SelectedIndex == 7)
                 {
                     try
                     {
@@ -1443,7 +1922,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 10)
+                if (comboBoxEdit5.SelectedIndex == 8)
                 {
                     try
                     {
@@ -1461,7 +1940,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 11)
+                if (comboBoxEdit5.SelectedIndex == 9)
                 {
                     try
                     {
@@ -1478,151 +1957,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 12)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Anonymous_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_Anonymous_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 13)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Basic_White_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_Basic-White_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 14)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Black_Steel_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_Black-Steel_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 15)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/inFamous_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_inFamous_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 16)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/iOS_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_iOS_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 17)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Rebug_Style_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_REBUG-Style_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 18)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Red_DarkneSs_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_Red-DarkneSs_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 19)
-                {
-                    try
-                    {
-                        iswebfree = false;
-                        DownProgress.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var UI = webClient.DownloadString(URL + webman_themes);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedHomeb);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgress);
-                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Steel_Style_Theme_" + UI + ".pkg"), @"downloads/webMAN_MOD_Theme_Steel-Style_" + UI + ".pkg");
-                    }
-                    catch (Exception ex)
-                    {
-                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (comboBoxEdit5.SelectedIndex == 20)
+                if (comboBoxEdit5.SelectedIndex == 10)
                 {
                     try
                     {
@@ -1640,7 +1975,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 21)
+                if (comboBoxEdit5.SelectedIndex == 11)
                 {
                     try
                     {
@@ -1658,7 +1993,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 22)
+                if (comboBoxEdit5.SelectedIndex == 12)
                 {
                     try
                     {
@@ -1676,7 +2011,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 23)
+                if (comboBoxEdit5.SelectedIndex == 13)
                 {
                     try
                     {
@@ -1694,7 +2029,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 24)
+                if (comboBoxEdit5.SelectedIndex == 14)
                 {
                     try
                     {
@@ -1712,7 +2047,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 25)
+                if (comboBoxEdit5.SelectedIndex == 15)
                 {
                     try
                     {
@@ -1730,7 +2065,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 26)
+                if (comboBoxEdit5.SelectedIndex == 16)
                 {
                     try
                     {
@@ -1748,7 +2083,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 27)
+                if (comboBoxEdit5.SelectedIndex == 17)
                 {
                     try
                     {
@@ -1766,7 +2101,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 28)
+                if (comboBoxEdit5.SelectedIndex == 18)
                 {
                     try
                     {
@@ -1784,7 +2119,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 29)
+                if (comboBoxEdit5.SelectedIndex == 19)
                 {
                     try
                     {
@@ -1802,7 +2137,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     }
                 }
 
-                if (comboBoxEdit5.SelectedIndex == 30)
+                if (comboBoxEdit5.SelectedIndex == 20)
                 {
                     try
                     {
@@ -5911,14 +6246,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox119.Visible = false;
@@ -5945,14 +6272,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox119.Visible = false;
@@ -5979,14 +6298,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6005,22 +6316,14 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 simpleButton1.Visible = true;
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = false;
-                pictureBox3.Visible = true;
-                pictureBox4.Visible = false;
+                pictureBox3.Visible = false;
+                pictureBox4.Visible = true;
                 pictureBox5.Visible = false;
                 pictureBox6.Visible = false;
                 pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6039,22 +6342,14 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 simpleButton1.Visible = true;
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = false;
-                pictureBox3.Visible = true;
+                pictureBox3.Visible = false;
                 pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
+                pictureBox5.Visible = true;
                 pictureBox6.Visible = false;
                 pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6074,21 +6369,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox1.Visible = false;
                 pictureBox2.Visible = false;
                 pictureBox3.Visible = false;
-                pictureBox4.Visible = true;
+                pictureBox4.Visible = false;
                 pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
+                pictureBox6.Visible = true;
                 pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6109,20 +6396,12 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox2.Visible = false;
                 pictureBox3.Visible = false;
                 pictureBox4.Visible = false;
-                pictureBox5.Visible = true;
+                pictureBox5.Visible = false;
                 pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
+                pictureBox7.Visible = true;
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox119.Visible = false;
                 pictureBox118.Visible = false;
@@ -6144,19 +6423,11 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox3.Visible = false;
                 pictureBox4.Visible = false;
                 pictureBox5.Visible = false;
-                pictureBox6.Visible = true;
+                pictureBox6.Visible = false;
                 pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
+                pictureBox22.Visible = true;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
@@ -6179,18 +6450,10 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox4.Visible = false;
                 pictureBox5.Visible = false;
                 pictureBox6.Visible = false;
-                pictureBox7.Visible = true;
+                pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
+                pictureBox108.Visible = true;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
@@ -6214,18 +6477,10 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox5.Visible = false;
                 pictureBox6.Visible = false;
                 pictureBox7.Visible = false;
-                pictureBox22.Visible = true;
+                pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
+                pictureBox109.Visible = true;
                 pictureBox118.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
@@ -6249,17 +6504,9 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox6.Visible = false;
                 pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
-                pictureBox108.Visible = true;
+                pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
+                pictureBox118.Visible = true;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
@@ -6284,17 +6531,9 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox7.Visible = false;
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
-                pictureBox109.Visible = true;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
+                pictureBox109.Visible = false;
                 pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
+                pictureBox119.Visible = true;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
                 pictureBox123.Visible = false;
@@ -6319,18 +6558,10 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = true;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
-                pictureBox122.Visible = false;
+                pictureBox122.Visible = true;
                 pictureBox123.Visible = false;
                 pictureBox124.Visible = false;
                 pictureBox125.Visible = false;
@@ -6353,19 +6584,11 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = true;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
+                pictureBox123.Visible = true;
                 pictureBox124.Visible = false;
                 pictureBox125.Visible = false;
                 pictureBox126.Visible = false;
@@ -6387,20 +6610,12 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = true;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
                 pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
+                pictureBox124.Visible = true;
                 pictureBox125.Visible = false;
                 pictureBox126.Visible = false;
                 pictureBox127.Visible = false;
@@ -6421,21 +6636,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = true;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 pictureBox122.Visible = false;
                 pictureBox123.Visible = false;
                 pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
+                pictureBox125.Visible = true;
                 pictureBox126.Visible = false;
                 pictureBox127.Visible = false;
                 pictureBox128.Visible = false;
@@ -6455,14 +6662,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = true;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6470,7 +6669,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox123.Visible = false;
                 pictureBox124.Visible = false;
                 pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
+                pictureBox126.Visible = true;
                 pictureBox127.Visible = false;
                 pictureBox128.Visible = false;
                 pictureBox129.Visible = false;
@@ -6489,14 +6688,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = true;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6505,7 +6696,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox124.Visible = false;
                 pictureBox125.Visible = false;
                 pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
+                pictureBox127.Visible = true;
                 pictureBox128.Visible = false;
                 pictureBox129.Visible = false;
                 pictureBox130.Visible = false;
@@ -6523,14 +6714,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = true;
-                pictureBox117.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
@@ -6540,7 +6723,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox125.Visible = false;
                 pictureBox126.Visible = false;
                 pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
+                pictureBox128.Visible = true;
                 pictureBox129.Visible = false;
                 pictureBox130.Visible = false;
             }
@@ -6557,14 +6740,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = true;
                 pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
@@ -6575,7 +6750,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox126.Visible = false;
                 pictureBox127.Visible = false;
                 pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
+                pictureBox129.Visible = true;
                 pictureBox130.Visible = false;
             }
             if (comboBoxEdit5.SelectedIndex == 20)
@@ -6591,355 +6766,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox22.Visible = false;
                 pictureBox108.Visible = false;
                 pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
                 pictureBox118.Visible = true;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 21)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = true;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 22)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = true;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 23)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = true;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 24)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = true;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 25)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = true;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 26)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = true;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 27)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = true;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 28)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = true;
-                pictureBox129.Visible = false;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 29)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
-                pictureBox119.Visible = false;
-                simpleButton1.Visible = true;
-                pictureBox122.Visible = false;
-                pictureBox123.Visible = false;
-                pictureBox124.Visible = false;
-                pictureBox125.Visible = false;
-                pictureBox126.Visible = false;
-                pictureBox127.Visible = false;
-                pictureBox128.Visible = false;
-                pictureBox129.Visible = true;
-                pictureBox130.Visible = false;
-            }
-            if (comboBoxEdit5.SelectedIndex == 30)
-            {
-                simpleButton1.Visible = true;
-                pictureBox1.Visible = false;
-                pictureBox2.Visible = false;
-                pictureBox3.Visible = false;
-                pictureBox4.Visible = false;
-                pictureBox5.Visible = false;
-                pictureBox6.Visible = false;
-                pictureBox7.Visible = false;
-                pictureBox22.Visible = false;
-                pictureBox108.Visible = false;
-                pictureBox109.Visible = false;
-                pictureBox110.Visible = false;
-                pictureBox111.Visible = false;
-                pictureBox112.Visible = false;
-                pictureBox113.Visible = false;
-                pictureBox114.Visible = false;
-                pictureBox115.Visible = false;
-                pictureBox116.Visible = false;
-                pictureBox117.Visible = false;
-                pictureBox118.Visible = false;
                 pictureBox119.Visible = false;
                 simpleButton1.Visible = true;
                 pictureBox122.Visible = false;
@@ -7716,6 +7543,22 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 labelControl33.Text = "b2483b4abc157494447c9c409c036041";
             }
+            if (comboBoxEdit12.SelectedIndex == 4)
+            {
+                labelControl33.Text = "152d950c365ede4130c53ceb18dcd43b";
+            }
+            if (comboBoxEdit12.SelectedIndex == 5)
+            {
+                labelControl33.Text = "69b4529fd584523cf37e6d29107b9a8b";
+            }
+            if (comboBoxEdit12.SelectedIndex == 6)
+            {
+                labelControl33.Text = "da485a99e39105b2ccffa5af59f82221";
+            }
+            if (comboBoxEdit12.SelectedIndex == 7)
+            {
+                labelControl33.Text = "c975768e5d70e105a72656f498cc9be9";
+            }
         }
 
         private void comboBoxEdit13_SelectedIndexChanged(object sender, EventArgs e)
@@ -7733,6 +7576,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             string md5playerkpdb = "md5playerkpdb.txt";
             string md5darknetst = "md5darknetst.txt";
             string md5darknetcbr = "md5darknetcbr.txt";
+            string md5spycbr = "md5spycbr.txt";
+            string md5pastacbr = "md5pastacbr.txt";
+            string md5hfw = "md5hfw.txt";
+            string md5overflowst = "md5overflowst.txt";
+            string md5overflowcbr = "md5overflowcbr.txt";
+            string md5overflowcbrnobd = "md5overflowcbrnobd.txt";
+            string md5overflowdb = "md5overflowdb.txt";
 
             if (comboBoxEdit13.SelectedIndex == 0)
             {
@@ -7829,6 +7679,48 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 var md5 = wc.DownloadString(URL + md5darknetcbr);
                 labelControl33.Text = md5;
             }
+            if (comboBoxEdit13.SelectedIndex == 17)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5spycbr);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 18)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5pastacbr);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 19)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5hfw);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 20)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5overflowst);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 21)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5overflowcbr);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 22)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5overflowcbrnobd);
+                labelControl33.Text = md5;
+            }
+            if (comboBoxEdit13.SelectedIndex == 23)
+            {
+                WebClient wc = new WebClient();
+                var md5 = wc.DownloadString(URL + md5overflowdb);
+                labelControl33.Text = md5;
+            }
         }
 
         private void DownloadProgressFw(object sender, DownloadProgressChangedEventArgs e)
@@ -7849,7 +7741,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
             }
         }
 
-        private bool IswebCFree()
+        private bool IswebDBCFree()
         {
             if (isdbwebfree == true)
                 return true;
@@ -7862,14 +7754,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://download2152.mediafire.com/8ug7dwm7qmfg/l33tumeaenzmtc0/ofw+3.41+ps3.rar"), @"downloads/ORIGINAL_FIRMWARE_3.41.rar");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://download2152.mediafire.com/8ug7dwm7qmfg/l33tumeaenzmtc0/ofw+3.41+ps3.rar"), @"downloads/ORIGINAL_FIRMWARE_3.41.rar");
                     }
                     else
                     {
@@ -7886,14 +7777,14 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://download1655.mediafire.com/ngjlw0cea7og/n5lnl2t0e7e0en5/3.55+SONY.rar"), @"downloads/ORIGINAL_FIRMWARE_3.55.rar");
+                        
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://download1655.mediafire.com/ngjlw0cea7og/n5lnl2t0e7e0en5/3.55+SONY.rar"), @"downloads/ORIGINAL_FIRMWARE_3.55.rar");
                     }
                     else
                     {
@@ -7910,14 +7801,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2016_0420_2c7ac82e02db9ce396618e6644a8c52d/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.80.PUP");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2016_0420_2c7ac82e02db9ce396618e6644a8c52d/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.80.PUP");
                     }
                     else
                     {
@@ -7934,14 +7824,105 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2016_1101_b2483b4abc157494447c9c409c036041/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.81.PUP");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2016_1101_b2483b4abc157494447c9c409c036041/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.81.PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit12.SelectedIndex == 4)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2017_1113_152d950c365ede4130c53ceb18dcd43b/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.82.PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit12.SelectedIndex == 5)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2018_1011_69b4529fd584523cf37e6d29107b9a8b/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.83.PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit12.SelectedIndex == 6)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2019_0214_da485a99e39105b2ccffa5af59f82221/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.84.PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit12.SelectedIndex == 7)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://deu01.ps3.update.playstation.net/update/ps3/image/eu/2019_0828_c975768e5d70e105a72656f498cc9be9/PS3UPDAT.PUP"), @"downloads/ORIGINAL_FIRMWARE_4.85.PUP");
                     }
                     else
                     {
@@ -7961,14 +7942,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://scmods.com/rebug/firmware/REBUG_3.55.4_REX_PS3UPDAT.PUP"), @"downloads/CUSTOM_FIRMWARE_REBUG_3.55.4.PUP");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://scmods.com/rebug/firmware/REBUG_3.55.4_REX_PS3UPDAT.PUP"), @"downloads/CUSTOM_FIRMWARE_REBUG_3.55.4.PUP");
                     }
                     else
                     {
@@ -7985,14 +7965,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("http://scmods.com/rebug/firmware/REBUG_3.55.4_999_DGR_PS3UPDAT.PUP"), @"downloads/CUSTOM_FIRMWARE_REBUG_999_DOWNGRADER.PUP");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("http://scmods.com/rebug/firmware/REBUG_3.55.4_999_DGR_PS3UPDAT.PUP"), @"downloads/CUSTOM_FIRMWARE_REBUG_999_DOWNGRADER.PUP");
                     }
                     else
                     {
@@ -8009,14 +7988,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("https://mega.nz/#!T1sygaaD!qcC5aTdDgSYD71_LRX5YvIKBAKUQm9b70RrEmK_c2h4"), @"downloads/CUSTOM_FIRMWARE_ROGERO_999_DOWNGRADER.rar");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("https://mega.nz/#!T1sygaaD!qcC5aTdDgSYD71_LRX5YvIKBAKUQm9b70RrEmK_c2h4"), @"downloads/CUSTOM_FIRMWARE_ROGERO_999_DOWNGRADER.rar");
                     }
                     else
                     {
@@ -8033,14 +8011,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri("https://mega.nz/#!ywdGgA7K!iCa1ZxSWtvfue-VXX3-d0b4HsiZY21baI5wymD_06NM"), @"downloads/CUSTOM_FIRMWARE_FERROX_3.55_NOBD.rar");
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri("https://mega.nz/#!ywdGgA7K!iCa1ZxSWtvfue-VXX3-d0b4HsiZY21baI5wymD_06NM"), @"downloads/CUSTOM_FIRMWARE_FERROX_3.55_NOBD.rar");
                     }
                     else
                     {
@@ -8057,16 +8034,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vFerroxstandard);
-                        var UI = webClient.DownloadString(URL + dlferroxst);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vFerroxstandard);
+                        var UI = webClientDB.DownloadString(URL + dlferroxst);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8083,16 +8059,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vFerroxcobra);
-                        var UI = webClient.DownloadString(URL + dlferroxcbr);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vFerroxcobra);
+                        var UI = webClientDB.DownloadString(URL + dlferroxcbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8109,16 +8084,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vFerroxnobd);
-                        var UI = webClient.DownloadString(URL + dlferroxnobd);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vFerroxnobd);
+                        var UI = webClientDB.DownloadString(URL + dlferroxnobd);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8135,16 +8109,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vRebugrex);
-                        var UI = webClient.DownloadString(URL + dlrebugrex);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vRebugrex);
+                        var UI = webClientDB.DownloadString(URL + dlrebugrex);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8161,16 +8134,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vRebugdrex);
-                        var UI = webClient.DownloadString(URL + dlrebugdrex);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vRebugdrex);
+                        var UI = webClientDB.DownloadString(URL + dlrebugdrex);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8187,16 +8159,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vRebugmod);
-                        var UI = webClient.DownloadString(URL + dlrebugmod);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vRebugmod);
+                        var UI = webClientDB.DownloadString(URL + dlrebugmod);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8213,16 +8184,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vHabibcobra);
-                        var UI = webClient.DownloadString(URL + dlhabibcbr);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vHabibcobra);
+                        var UI = webClientDB.DownloadString(URL + dlhabibcbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8239,16 +8209,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vPs3ITA);
-                        var UI = webClient.DownloadString(URL + dlps3ita);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".rar");
+                        var V = webClientDB.DownloadString(URL + vPs3ITA);
+                        var UI = webClientDB.DownloadString(URL + dlps3ita);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".rar");
                     }
                     else
                     {
@@ -8265,16 +8234,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vPlayerkpstandard);
-                        var UI = webClient.DownloadString(URL + dlplayerkpst);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vPlayerkpstandard);
+                        var UI = webClientDB.DownloadString(URL + dlplayerkpst);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8291,16 +8259,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vPlayerkpcobra);
-                        var UI = webClient.DownloadString(URL + dlplayerkpcbr);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vPlayerkpcobra);
+                        var UI = webClientDB.DownloadString(URL + dlplayerkpcbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8317,16 +8284,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vPlayerkpdb);
-                        string UI = webClient.DownloadString(URL + dlplayerkpdb);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vPlayerkpdb);
+                        string UI = webClientDB.DownloadString(URL + dlplayerkpdb);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8343,16 +8309,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vDarknetstandard);
-                        string UI = webClient.DownloadString(URL + dldarknetst);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vDarknetstandard);
+                        string UI = webClientDB.DownloadString(URL + dldarknetst);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8369,16 +8334,190 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 try
                 {
-                    if (IswebCFree() == true)
+                    if (IswebDBCFree() == true)
                     {
                         isdbwebfree = false;
                         progressBarControl6.EditValue = 0;
-                        WebClient webClient = new WebClient();
-                        var V = webClient.DownloadString(URL + vDarknetcobra);
-                        string UI = webClient.DownloadString(URL + dldarknetcbr);
-                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
-                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
-                        webClient.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                        var V = webClientDB.DownloadString(URL + vDarknetcobra);
+                        string UI = webClientDB.DownloadString(URL + dldarknetcbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 17)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vSpycobra);
+                        string UI = webClientDB.DownloadString(URL + dlspycbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 18)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vPastaDEXcobra);
+                        string UI = webClientDB.DownloadString(URL + dlpastadexcbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 19)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vhfw);
+                        string UI = webClientDB.DownloadString(URL + dlhfw);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 20)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vOverst);
+                        string UI = webClientDB.DownloadString(URL + dloverst);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 21)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vOvercbr);
+                        string UI = webClientDB.DownloadString(URL + dlovercbr);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 22)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vOvercbrnobd);
+                        string UI = webClientDB.DownloadString(URL + dlovercbrnobd);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Another Download is on the way. \nWait for the end of the current Download, then retry :)", "Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            if (comboBoxEdit13.SelectedIndex == 23)
+            {
+                try
+                {
+                    if (IswebDBCFree() == true)
+                    {
+                        isdbwebfree = false;
+                        progressBarControl6.EditValue = 0;
+                        var V = webClientDB.DownloadString(URL + vOverdb);
+                        string UI = webClientDB.DownloadString(URL + dloverdb);
+                        webClientDB.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedFw);
+                        webClientDB.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressFw);
+                        webClientDB.DownloadFileAsync(new Uri(UI), @"downloads/" + V + ".PUP");
                     }
                     else
                     {
@@ -8556,7 +8695,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
             if (XtraMessageBox.Show("Download Completed! \nYou will find the EBOOT in the downloads folder.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk) == DialogResult.OK)
             {
                 progressBarControl7.EditValue = 0;
-                isdbwebfree = true;
+                iswebfree = true;
                 labelControl68.Text = "...";
                 labelControl69.Text = "...";
             }
@@ -8564,13 +8703,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void simpleButton48_Click(object sender, EventArgs e)
         {
-            if (IswebCFree() == true)
+            if (IsWebCFree() == true)
             {
                 if (comboBoxEdit15.SelectedIndex == 0)
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8587,7 +8726,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8604,7 +8743,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8621,7 +8760,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8638,7 +8777,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8655,7 +8794,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8672,7 +8811,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8689,7 +8828,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8706,7 +8845,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8723,7 +8862,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8740,7 +8879,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8757,7 +8896,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8774,7 +8913,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8791,7 +8930,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8812,13 +8951,13 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void simpleButton47_Click(object sender, EventArgs e)
         {
-            if (IswebCFree() == true)
+            if (IsWebCFree() == true)
             {
                 if (comboBoxEdit14.SelectedIndex == 0)
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8835,7 +8974,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8852,7 +8991,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8869,7 +9008,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8886,7 +9025,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8903,7 +9042,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8920,7 +9059,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8937,7 +9076,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8954,7 +9093,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8971,7 +9110,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -8988,7 +9127,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9005,7 +9144,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9022,7 +9161,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9039,7 +9178,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9056,7 +9195,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9073,7 +9212,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9090,7 +9229,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9107,7 +9246,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9124,7 +9263,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9141,7 +9280,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9158,7 +9297,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -9175,7 +9314,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     try
                     {
-                        isdbwebfree = false;
+                        iswebfree = false;
                         progressBarControl7.EditValue = 0;
                         WebClient webClient = new WebClient();
                         webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedEboot);
@@ -14271,6 +14410,39 @@ namespace PS3_LezZo_Manager_Tool_xNew
             else
             {
                 XtraMessageBox.Show("Something goes wrong. PSID Must be 32 characters! \nOr maybe you are not connected..", "Error..", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void simpleButton53_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(txtB_Ip.Text + "/popup.ps3");
+        }
+
+        private void simpleButton54_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(txtB_Ip.Text + "/refresh_ps3");
+        }
+
+        private void simpleButton7_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("Are you sure to reset all the settings?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+                webBrowser1.Navigate(txtB_Ip.Text + "/setup.ps3?");
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(txtB_Ip.Text + "/videorec.ps3");
+        }
+
+        private void simpleButton55_Click(object sender, EventArgs e)
+        {
+            if (IswebDBCFree() == false)
+            {
+                webClientDB.CancelAsync();
+                progressBarControl6.EditValue = 0;
+                labelControl65.Text = "...";
+                labelControl66.Text = "...";
+                isdbwebfree = true;
             }
         }
     }

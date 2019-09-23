@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PS3_LezZo_Manager_Tool_xNew.FormSplash), true, true);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PS3_LezZo_Manager_Tool_xNew.WaitForm1), true, true);
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
@@ -97,6 +98,9 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
             this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
             this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -108,6 +112,10 @@
             this.comboBoxEdit4 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.comboBoxEdit3 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupControl4 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton53 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton54 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton25 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton24 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton26 = new DevExpress.XtraEditors.SimpleButton();
@@ -157,14 +165,6 @@
             this.pictureBox122 = new System.Windows.Forms.PictureBox();
             this.pictureBox119 = new System.Windows.Forms.PictureBox();
             this.pictureBox118 = new System.Windows.Forms.PictureBox();
-            this.pictureBox117 = new System.Windows.Forms.PictureBox();
-            this.pictureBox116 = new System.Windows.Forms.PictureBox();
-            this.pictureBox115 = new System.Windows.Forms.PictureBox();
-            this.pictureBox114 = new System.Windows.Forms.PictureBox();
-            this.pictureBox113 = new System.Windows.Forms.PictureBox();
-            this.pictureBox112 = new System.Windows.Forms.PictureBox();
-            this.pictureBox111 = new System.Windows.Forms.PictureBox();
-            this.pictureBox110 = new System.Windows.Forms.PictureBox();
             this.pictureBox109 = new System.Windows.Forms.PictureBox();
             this.pictureBox108 = new System.Windows.Forms.PictureBox();
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
@@ -339,6 +339,7 @@
             this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
             this.timer6 = new System.Windows.Forms.Timer(this.components);
             this.groupControl13 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton55 = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl66 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl65 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl64 = new DevExpress.XtraEditors.LabelControl();
@@ -376,7 +377,6 @@
             this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox98 = new System.Windows.Forms.PictureBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.splashScreenManager2 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::PS3_LezZo_Manager_Tool_xNew.WaitForm1), true, true);
             this.groupControl16 = new DevExpress.XtraEditors.GroupControl();
             this.simpleButton52 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton51 = new DevExpress.XtraEditors.SimpleButton();
@@ -387,9 +387,6 @@
             this.labelControl42 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox99 = new System.Windows.Forms.PictureBox();
-            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
-            this.simpleButton4 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
@@ -398,6 +395,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).BeginInit();
@@ -434,14 +432,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox122)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox119)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox118)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox117)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox116)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox115)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox114)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox113)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox112)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox111)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox110)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox109)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox108)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
@@ -599,12 +589,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl16)).BeginInit();
             this.groupControl16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splashScreenManager1
             // 
-            splashScreenManager1.ClosingDelay = 100;
+            splashScreenManager1.ClosingDelay = 300;
+            // 
+            // splashScreenManager2
+            // 
+            this.splashScreenManager2.ClosingDelay = 500;
             // 
             // defaultLookAndFeel1
             // 
@@ -809,7 +802,7 @@
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(108, 13);
             this.labelControl21.TabIndex = 57;
-            this.labelControl21.Text = "Current Version: 2.0.2";
+            this.labelControl21.Text = "Current Version: 2.1.0";
             // 
             // webBrowser1
             // 
@@ -1188,6 +1181,39 @@
             this.groupControl2.TabIndex = 41;
             this.groupControl2.Visible = false;
             // 
+            // simpleButton4
+            // 
+            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton4.Appearance.Options.UseForeColor = true;
+            this.simpleButton4.Location = new System.Drawing.Point(143, 238);
+            this.simpleButton4.Name = "simpleButton4";
+            this.simpleButton4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton4.Size = new System.Drawing.Size(129, 20);
+            this.simpleButton4.TabIndex = 32;
+            this.simpleButton4.Text = "Set Console ID";
+            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton5.Appearance.Options.UseForeColor = true;
+            this.simpleButton5.Location = new System.Drawing.Point(652, 238);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton5.Size = new System.Drawing.Size(129, 20);
+            this.simpleButton5.TabIndex = 31;
+            this.simpleButton5.Text = "Set PSID";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
+            // 
+            // textEdit5
+            // 
+            this.textEdit5.EditValue = "00000000000000000000000000000000";
+            this.textEdit5.Location = new System.Drawing.Point(609, 202);
+            this.textEdit5.Name = "textEdit5";
+            this.textEdit5.Properties.AllowFocused = false;
+            this.textEdit5.Size = new System.Drawing.Size(215, 20);
+            this.textEdit5.TabIndex = 30;
+            // 
             // textEdit2
             // 
             this.textEdit2.EditValue = "00000000000000000000000000000000";
@@ -1318,6 +1344,10 @@
             // 
             // groupControl4
             // 
+            this.groupControl4.Controls.Add(this.simpleButton6);
+            this.groupControl4.Controls.Add(this.simpleButton7);
+            this.groupControl4.Controls.Add(this.simpleButton53);
+            this.groupControl4.Controls.Add(this.simpleButton54);
             this.groupControl4.Controls.Add(this.simpleButton25);
             this.groupControl4.Controls.Add(this.simpleButton24);
             this.groupControl4.Controls.Add(this.simpleButton26);
@@ -1339,23 +1369,71 @@
             this.groupControl4.TabIndex = 43;
             this.groupControl4.Visible = false;
             // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton6.Appearance.Options.UseForeColor = true;
+            this.simpleButton6.Location = new System.Drawing.Point(722, 245);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton6.Size = new System.Drawing.Size(139, 25);
+            this.simpleButton6.TabIndex = 37;
+            this.simpleButton6.Text = "Toggle Video recording";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // simpleButton7
+            // 
+            this.simpleButton7.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton7.Appearance.Options.UseForeColor = true;
+            this.simpleButton7.Location = new System.Drawing.Point(502, 245);
+            this.simpleButton7.Name = "simpleButton7";
+            this.simpleButton7.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton7.Size = new System.Drawing.Size(139, 25);
+            this.simpleButton7.TabIndex = 36;
+            this.simpleButton7.Text = "Reset wmm settings";
+            this.simpleButton7.Click += new System.EventHandler(this.simpleButton7_Click);
+            // 
+            // simpleButton53
+            // 
+            this.simpleButton53.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton53.Appearance.Options.UseForeColor = true;
+            this.simpleButton53.Location = new System.Drawing.Point(272, 245);
+            this.simpleButton53.Name = "simpleButton53";
+            this.simpleButton53.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton53.Size = new System.Drawing.Size(139, 25);
+            this.simpleButton53.TabIndex = 35;
+            this.simpleButton53.Text = "Show System Info";
+            this.simpleButton53.Click += new System.EventHandler(this.simpleButton53_Click);
+            // 
+            // simpleButton54
+            // 
+            this.simpleButton54.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton54.Appearance.Options.UseForeColor = true;
+            this.simpleButton54.Location = new System.Drawing.Point(52, 245);
+            this.simpleButton54.Name = "simpleButton54";
+            this.simpleButton54.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton54.Size = new System.Drawing.Size(139, 25);
+            this.simpleButton54.TabIndex = 34;
+            this.simpleButton54.Text = "Refresh XMB";
+            this.simpleButton54.Click += new System.EventHandler(this.simpleButton54_Click);
+            // 
             // simpleButton25
             // 
             this.simpleButton25.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton25.Appearance.Options.UseForeColor = true;
-            this.simpleButton25.Location = new System.Drawing.Point(618, 310);
+            this.simpleButton25.Location = new System.Drawing.Point(618, 328);
             this.simpleButton25.Name = "simpleButton25";
             this.simpleButton25.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton25.Size = new System.Drawing.Size(139, 25);
             this.simpleButton25.TabIndex = 33;
-            this.simpleButton25.Text = "Launch WebMAN Files";
+            this.simpleButton25.Text = "Install PKG Selector";
             this.simpleButton25.Click += new System.EventHandler(this.simpleButton25_Click);
             // 
             // simpleButton24
             // 
             this.simpleButton24.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton24.Appearance.Options.UseForeColor = true;
-            this.simpleButton24.Location = new System.Drawing.Point(163, 310);
+            this.simpleButton24.Location = new System.Drawing.Point(163, 328);
             this.simpleButton24.Name = "simpleButton24";
             this.simpleButton24.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton24.Size = new System.Drawing.Size(139, 25);
@@ -1367,7 +1445,7 @@
             // 
             this.simpleButton26.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton26.Appearance.Options.UseForeColor = true;
-            this.simpleButton26.Location = new System.Drawing.Point(386, 310);
+            this.simpleButton26.Location = new System.Drawing.Point(386, 328);
             this.simpleButton26.Name = "simpleButton26";
             this.simpleButton26.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton26.Size = new System.Drawing.Size(144, 25);
@@ -1379,7 +1457,7 @@
             // 
             this.simpleButton23.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton23.Appearance.Options.UseForeColor = true;
-            this.simpleButton23.Location = new System.Drawing.Point(727, 230);
+            this.simpleButton23.Location = new System.Drawing.Point(722, 185);
             this.simpleButton23.Name = "simpleButton23";
             this.simpleButton23.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton23.Size = new System.Drawing.Size(139, 25);
@@ -1391,7 +1469,7 @@
             // 
             this.simpleButton22.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton22.Appearance.Options.UseForeColor = true;
-            this.simpleButton22.Location = new System.Drawing.Point(727, 150);
+            this.simpleButton22.Location = new System.Drawing.Point(722, 125);
             this.simpleButton22.Name = "simpleButton22";
             this.simpleButton22.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton22.Size = new System.Drawing.Size(139, 25);
@@ -1403,7 +1481,7 @@
             // 
             this.simpleButton21.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton21.Appearance.Options.UseForeColor = true;
-            this.simpleButton21.Location = new System.Drawing.Point(727, 70);
+            this.simpleButton21.Location = new System.Drawing.Point(722, 65);
             this.simpleButton21.Name = "simpleButton21";
             this.simpleButton21.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton21.Size = new System.Drawing.Size(139, 25);
@@ -1415,7 +1493,7 @@
             // 
             this.simpleButton20.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton20.Appearance.Options.UseForeColor = true;
-            this.simpleButton20.Location = new System.Drawing.Point(507, 230);
+            this.simpleButton20.Location = new System.Drawing.Point(502, 185);
             this.simpleButton20.Name = "simpleButton20";
             this.simpleButton20.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton20.Size = new System.Drawing.Size(139, 25);
@@ -1427,7 +1505,7 @@
             // 
             this.simpleButton19.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton19.Appearance.Options.UseForeColor = true;
-            this.simpleButton19.Location = new System.Drawing.Point(507, 150);
+            this.simpleButton19.Location = new System.Drawing.Point(502, 125);
             this.simpleButton19.Name = "simpleButton19";
             this.simpleButton19.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton19.Size = new System.Drawing.Size(139, 25);
@@ -1439,7 +1517,7 @@
             // 
             this.simpleButton18.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton18.Appearance.Options.UseForeColor = true;
-            this.simpleButton18.Location = new System.Drawing.Point(507, 70);
+            this.simpleButton18.Location = new System.Drawing.Point(502, 65);
             this.simpleButton18.Name = "simpleButton18";
             this.simpleButton18.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton18.Size = new System.Drawing.Size(139, 25);
@@ -1451,7 +1529,7 @@
             // 
             this.simpleButton17.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton17.Appearance.Options.UseForeColor = true;
-            this.simpleButton17.Location = new System.Drawing.Point(277, 230);
+            this.simpleButton17.Location = new System.Drawing.Point(272, 185);
             this.simpleButton17.Name = "simpleButton17";
             this.simpleButton17.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton17.Size = new System.Drawing.Size(139, 25);
@@ -1463,7 +1541,7 @@
             // 
             this.simpleButton16.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton16.Appearance.Options.UseForeColor = true;
-            this.simpleButton16.Location = new System.Drawing.Point(277, 150);
+            this.simpleButton16.Location = new System.Drawing.Point(272, 125);
             this.simpleButton16.Name = "simpleButton16";
             this.simpleButton16.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton16.Size = new System.Drawing.Size(139, 25);
@@ -1475,19 +1553,19 @@
             // 
             this.simpleButton15.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton15.Appearance.Options.UseForeColor = true;
-            this.simpleButton15.Location = new System.Drawing.Point(277, 70);
+            this.simpleButton15.Location = new System.Drawing.Point(272, 65);
             this.simpleButton15.Name = "simpleButton15";
             this.simpleButton15.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton15.Size = new System.Drawing.Size(139, 25);
             this.simpleButton15.TabIndex = 22;
-            this.simpleButton15.Text = "Recovery Menu";
+            this.simpleButton15.Text = "Recovery Mode";
             this.simpleButton15.Click += new System.EventHandler(this.simpleButton15_Click);
             // 
             // simpleButton14
             // 
             this.simpleButton14.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton14.Appearance.Options.UseForeColor = true;
-            this.simpleButton14.Location = new System.Drawing.Point(57, 230);
+            this.simpleButton14.Location = new System.Drawing.Point(52, 185);
             this.simpleButton14.Name = "simpleButton14";
             this.simpleButton14.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton14.Size = new System.Drawing.Size(139, 25);
@@ -1499,7 +1577,7 @@
             // 
             this.simpleButton10.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton10.Appearance.Options.UseForeColor = true;
-            this.simpleButton10.Location = new System.Drawing.Point(57, 150);
+            this.simpleButton10.Location = new System.Drawing.Point(52, 125);
             this.simpleButton10.Name = "simpleButton10";
             this.simpleButton10.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton10.Size = new System.Drawing.Size(139, 25);
@@ -1511,7 +1589,7 @@
             // 
             this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
             this.simpleButton9.Appearance.Options.UseForeColor = true;
-            this.simpleButton9.Location = new System.Drawing.Point(57, 70);
+            this.simpleButton9.Location = new System.Drawing.Point(52, 65);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
             this.simpleButton9.Size = new System.Drawing.Size(139, 25);
@@ -1722,14 +1800,6 @@
             this.groupControl6.Controls.Add(this.pictureBox122);
             this.groupControl6.Controls.Add(this.pictureBox119);
             this.groupControl6.Controls.Add(this.pictureBox118);
-            this.groupControl6.Controls.Add(this.pictureBox117);
-            this.groupControl6.Controls.Add(this.pictureBox116);
-            this.groupControl6.Controls.Add(this.pictureBox115);
-            this.groupControl6.Controls.Add(this.pictureBox114);
-            this.groupControl6.Controls.Add(this.pictureBox113);
-            this.groupControl6.Controls.Add(this.pictureBox112);
-            this.groupControl6.Controls.Add(this.pictureBox111);
-            this.groupControl6.Controls.Add(this.pictureBox110);
             this.groupControl6.Controls.Add(this.pictureBox109);
             this.groupControl6.Controls.Add(this.pictureBox108);
             this.groupControl6.Controls.Add(this.pictureBox22);
@@ -1936,86 +2006,6 @@
             this.pictureBox118.TabIndex = 88;
             this.pictureBox118.TabStop = false;
             this.pictureBox118.Visible = false;
-            // 
-            // pictureBox117
-            // 
-            this.pictureBox117.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox117.Image")));
-            this.pictureBox117.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox117.Name = "pictureBox117";
-            this.pictureBox117.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox117.TabIndex = 85;
-            this.pictureBox117.TabStop = false;
-            this.pictureBox117.Visible = false;
-            // 
-            // pictureBox116
-            // 
-            this.pictureBox116.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox116.Image")));
-            this.pictureBox116.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox116.Name = "pictureBox116";
-            this.pictureBox116.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox116.TabIndex = 84;
-            this.pictureBox116.TabStop = false;
-            this.pictureBox116.Visible = false;
-            // 
-            // pictureBox115
-            // 
-            this.pictureBox115.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox115.Image")));
-            this.pictureBox115.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox115.Name = "pictureBox115";
-            this.pictureBox115.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox115.TabIndex = 83;
-            this.pictureBox115.TabStop = false;
-            this.pictureBox115.Visible = false;
-            // 
-            // pictureBox114
-            // 
-            this.pictureBox114.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox114.Image")));
-            this.pictureBox114.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox114.Name = "pictureBox114";
-            this.pictureBox114.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox114.TabIndex = 82;
-            this.pictureBox114.TabStop = false;
-            this.pictureBox114.Visible = false;
-            // 
-            // pictureBox113
-            // 
-            this.pictureBox113.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox113.Image")));
-            this.pictureBox113.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox113.Name = "pictureBox113";
-            this.pictureBox113.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox113.TabIndex = 81;
-            this.pictureBox113.TabStop = false;
-            this.pictureBox113.Visible = false;
-            // 
-            // pictureBox112
-            // 
-            this.pictureBox112.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox112.Image")));
-            this.pictureBox112.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox112.Name = "pictureBox112";
-            this.pictureBox112.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox112.TabIndex = 80;
-            this.pictureBox112.TabStop = false;
-            this.pictureBox112.Visible = false;
-            // 
-            // pictureBox111
-            // 
-            this.pictureBox111.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox111.Image")));
-            this.pictureBox111.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox111.Name = "pictureBox111";
-            this.pictureBox111.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox111.TabIndex = 79;
-            this.pictureBox111.TabStop = false;
-            this.pictureBox111.Visible = false;
-            // 
-            // pictureBox110
-            // 
-            this.pictureBox110.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox110.Image")));
-            this.pictureBox110.Location = new System.Drawing.Point(248, 181);
-            this.pictureBox110.Name = "pictureBox110";
-            this.pictureBox110.Size = new System.Drawing.Size(253, 137);
-            this.pictureBox110.TabIndex = 78;
-            this.pictureBox110.TabStop = false;
-            this.pictureBox110.Visible = false;
             // 
             // pictureBox109
             // 
@@ -4006,6 +3996,7 @@
             // 
             // groupControl13
             // 
+            this.groupControl13.Controls.Add(this.simpleButton55);
             this.groupControl13.Controls.Add(this.labelControl66);
             this.groupControl13.Controls.Add(this.labelControl65);
             this.groupControl13.Controls.Add(this.labelControl64);
@@ -4024,6 +4015,18 @@
             this.groupControl13.Size = new System.Drawing.Size(922, 405);
             this.groupControl13.TabIndex = 60;
             this.groupControl13.Visible = false;
+            // 
+            // simpleButton55
+            // 
+            this.simpleButton55.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
+            this.simpleButton55.Appearance.Options.UseForeColor = true;
+            this.simpleButton55.Location = new System.Drawing.Point(383, 158);
+            this.simpleButton55.Name = "simpleButton55";
+            this.simpleButton55.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton55.Size = new System.Drawing.Size(161, 23);
+            this.simpleButton55.TabIndex = 54;
+            this.simpleButton55.Text = "Stop Download";
+            this.simpleButton55.Click += new System.EventHandler(this.simpleButton55_Click);
             // 
             // labelControl66
             // 
@@ -4116,7 +4119,11 @@
             "Original Firmware 3.41",
             "Original Firmware 3.55",
             "Original Firmware 4.80",
-            "Original Firmware 4.81"});
+            "Original Firmware 4.81",
+            "Original Firmware 4.82",
+            "Original Firmware 4.83",
+            "Original Firmware 4.84",
+            "Original Firmware 4.85"});
             this.comboBoxEdit12.Size = new System.Drawing.Size(333, 20);
             this.comboBoxEdit12.TabIndex = 43;
             this.comboBoxEdit12.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit12_SelectedIndexChanged);
@@ -4738,10 +4745,6 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
-            // splashScreenManager2
-            // 
-            this.splashScreenManager2.ClosingDelay = 500;
-            // 
             // groupControl16
             // 
             this.groupControl16.Controls.Add(this.simpleButton52);
@@ -4836,60 +4839,27 @@
             this.pictureBox99.TabStop = false;
             this.pictureBox99.Click += new System.EventHandler(this.pictureBox99_Click);
             // 
-            // simpleButton5
-            // 
-            this.simpleButton5.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
-            this.simpleButton5.Appearance.Options.UseForeColor = true;
-            this.simpleButton5.Location = new System.Drawing.Point(652, 238);
-            this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton5.Size = new System.Drawing.Size(129, 20);
-            this.simpleButton5.TabIndex = 31;
-            this.simpleButton5.Text = "Set PSID";
-            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
-            // 
-            // textEdit5
-            // 
-            this.textEdit5.EditValue = "00000000000000000000000000000000";
-            this.textEdit5.Location = new System.Drawing.Point(609, 202);
-            this.textEdit5.Name = "textEdit5";
-            this.textEdit5.Properties.AllowFocused = false;
-            this.textEdit5.Size = new System.Drawing.Size(215, 20);
-            this.textEdit5.TabIndex = 30;
-            // 
-            // simpleButton4
-            // 
-            this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.DarkOrange;
-            this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.Location = new System.Drawing.Point(143, 238);
-            this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton4.Size = new System.Drawing.Size(129, 20);
-            this.simpleButton4.TabIndex = 32;
-            this.simpleButton4.Text = "Set Console ID";
-            this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 522);
-            this.Controls.Add(this.groupControl2);
-            this.Controls.Add(this.groupControl13);
-            this.Controls.Add(this.groupControl14);
-            this.Controls.Add(this.groupControl15);
-            this.Controls.Add(this.groupControl12);
             this.Controls.Add(this.groupControl6);
-            this.Controls.Add(this.groupControl9);
+            this.Controls.Add(this.groupControl7);
             this.Controls.Add(this.groupControl11);
             this.Controls.Add(this.groupControl10);
+            this.Controls.Add(this.groupControl13);
+            this.Controls.Add(this.groupControl15);
+            this.Controls.Add(this.groupControl12);
+            this.Controls.Add(this.groupControl9);
             this.Controls.Add(this.groupControl8);
-            this.Controls.Add(this.groupControl7);
-            this.Controls.Add(this.groupControl1);
-            this.Controls.Add(this.groupControl16);
             this.Controls.Add(this.groupControl5);
-            this.Controls.Add(this.pictureBox98);
             this.Controls.Add(this.groupControl4);
+            this.Controls.Add(this.groupControl2);
+            this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.groupControl14);
+            this.Controls.Add(this.groupControl16);
+            this.Controls.Add(this.pictureBox98);
             this.Controls.Add(this.labelControl20);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
@@ -4906,7 +4876,7 @@
             this.Name = "Form1";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PS3 LezZo Manager Tool v2.0.2";
+            this.Text = "PS3 LezZo Manager Tool v2.1.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
@@ -4918,6 +4888,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit2.Properties)).EndInit();
@@ -4956,14 +4927,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox122)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox119)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox118)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox117)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox116)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox115)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox114)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox113)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox112)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox111)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox110)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox109)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox108)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
@@ -5131,7 +5094,6 @@
             this.groupControl16.ResumeLayout(false);
             this.groupControl16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit5.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5257,14 +5219,6 @@
         private System.Windows.Forms.PictureBox pictureBox122;
         private System.Windows.Forms.PictureBox pictureBox119;
         private System.Windows.Forms.PictureBox pictureBox118;
-        private System.Windows.Forms.PictureBox pictureBox117;
-        private System.Windows.Forms.PictureBox pictureBox116;
-        private System.Windows.Forms.PictureBox pictureBox115;
-        private System.Windows.Forms.PictureBox pictureBox114;
-        private System.Windows.Forms.PictureBox pictureBox113;
-        private System.Windows.Forms.PictureBox pictureBox112;
-        private System.Windows.Forms.PictureBox pictureBox111;
-        private System.Windows.Forms.PictureBox pictureBox110;
         private System.Windows.Forms.PictureBox pictureBox109;
         private System.Windows.Forms.PictureBox pictureBox108;
         private System.Windows.Forms.PictureBox pictureBox22;
@@ -5456,7 +5410,6 @@
         private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit13;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         public DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit5;
-        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
         private DevExpress.XtraEditors.GroupControl groupControl16;
         private System.Windows.Forms.PictureBox pictureBox99;
         private DevExpress.XtraEditors.SimpleButton simpleButton52;
@@ -5497,6 +5450,12 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         private DevExpress.XtraEditors.TextEdit textEdit5;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
+        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton simpleButton7;
+        private DevExpress.XtraEditors.SimpleButton simpleButton53;
+        private DevExpress.XtraEditors.SimpleButton simpleButton54;
+        private DevExpress.XtraEditors.SimpleButton simpleButton55;
+        private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
     }
 }
 
