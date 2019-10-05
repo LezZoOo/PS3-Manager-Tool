@@ -57,7 +57,6 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.checkEdit1 = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -251,6 +250,19 @@
             this.comboBoxEdit8 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton33 = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox143 = new System.Windows.Forms.PictureBox();
+            this.pictureBox142 = new System.Windows.Forms.PictureBox();
+            this.pictureBox141 = new System.Windows.Forms.PictureBox();
+            this.pictureBox140 = new System.Windows.Forms.PictureBox();
+            this.pictureBox139 = new System.Windows.Forms.PictureBox();
+            this.pictureBox138 = new System.Windows.Forms.PictureBox();
+            this.pictureBox137 = new System.Windows.Forms.PictureBox();
+            this.pictureBox136 = new System.Windows.Forms.PictureBox();
+            this.pictureBox135 = new System.Windows.Forms.PictureBox();
+            this.pictureBox134 = new System.Windows.Forms.PictureBox();
+            this.pictureBox133 = new System.Windows.Forms.PictureBox();
+            this.pictureBox132 = new System.Windows.Forms.PictureBox();
             this.labelControl51 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl52 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl53 = new DevExpress.XtraEditors.LabelControl();
@@ -260,7 +272,6 @@
             this.simpleButton36 = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEdit9 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton33 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox55 = new System.Windows.Forms.PictureBox();
             this.pictureBox54 = new System.Windows.Forms.PictureBox();
             this.pictureBox53 = new System.Windows.Forms.PictureBox();
@@ -301,6 +312,16 @@
             this.comboBoxEdit10 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl11 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton41 = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureBox131 = new System.Windows.Forms.PictureBox();
+            this.pictureBox117 = new System.Windows.Forms.PictureBox();
+            this.pictureBox116 = new System.Windows.Forms.PictureBox();
+            this.pictureBox115 = new System.Windows.Forms.PictureBox();
+            this.pictureBox114 = new System.Windows.Forms.PictureBox();
+            this.pictureBox113 = new System.Windows.Forms.PictureBox();
+            this.pictureBox112 = new System.Windows.Forms.PictureBox();
+            this.pictureBox111 = new System.Windows.Forms.PictureBox();
+            this.pictureBox110 = new System.Windows.Forms.PictureBox();
             this.labelControl55 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl56 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl57 = new DevExpress.XtraEditors.LabelControl();
@@ -310,7 +331,6 @@
             this.simpleButton43 = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxEdit11 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControl27 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton41 = new DevExpress.XtraEditors.SimpleButton();
             this.pictureBox91 = new System.Windows.Forms.PictureBox();
             this.pictureBox90 = new System.Windows.Forms.PictureBox();
             this.pictureBox89 = new System.Windows.Forms.PictureBox();
@@ -509,6 +529,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit8.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
             this.groupControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox143)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox142)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox141)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox140)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox139)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox138)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox137)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox136)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox135)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox134)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox133)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox132)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).BeginInit();
@@ -549,6 +581,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit10.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).BeginInit();
             this.groupControl11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox131)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox117)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox116)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox115)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox114)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox113)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox112)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox111)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox110)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl5.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit11.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).BeginInit();
@@ -775,7 +816,6 @@
             // 
             this.groupControl1.Controls.Add(this.labelControl21);
             this.groupControl1.Controls.Add(this.webBrowser1);
-            this.groupControl1.Controls.Add(this.labelControl15);
             this.groupControl1.Controls.Add(this.checkEdit1);
             this.groupControl1.Controls.Add(this.labelControl13);
             this.groupControl1.Controls.Add(this.labelControl12);
@@ -802,7 +842,7 @@
             this.labelControl21.Name = "labelControl21";
             this.labelControl21.Size = new System.Drawing.Size(108, 13);
             this.labelControl21.TabIndex = 57;
-            this.labelControl21.Text = "Current Version: 2.1.0";
+            this.labelControl21.Text = "Current Version: 2.1.1";
             // 
             // webBrowser1
             // 
@@ -813,15 +853,6 @@
             this.webBrowser1.TabIndex = 56;
             this.webBrowser1.Visible = false;
             this.webBrowser1.WebBrowserShortcutsEnabled = false;
-            // 
-            // labelControl15
-            // 
-            this.labelControl15.Location = new System.Drawing.Point(71, 123);
-            this.labelControl15.Name = "labelControl15";
-            this.labelControl15.Size = new System.Drawing.Size(12, 13);
-            this.labelControl15.TabIndex = 55;
-            this.labelControl15.Text = "...";
-            this.labelControl15.Visible = false;
             // 
             // checkEdit1
             // 
@@ -1902,7 +1933,8 @@
             "/dev_blind/vsh/resource",
             "/dev_hdd0/packages",
             "/dev_hdd0/theme",
-            "/dev_hdd0/game/BLES80608/USRDIR/themes"});
+            "/dev_hdd0/game/BLES80608/USRDIR/themes",
+            "/dev_hdd0/game/NPEA00374/USRDIR/themes"});
             this.comboBoxEdit6.Size = new System.Drawing.Size(159, 20);
             this.comboBoxEdit6.TabIndex = 98;
             this.comboBoxEdit6.Visible = false;
@@ -3004,6 +3036,19 @@
             // 
             // groupControl9
             // 
+            this.groupControl9.Controls.Add(this.simpleButton33);
+            this.groupControl9.Controls.Add(this.pictureBox143);
+            this.groupControl9.Controls.Add(this.pictureBox142);
+            this.groupControl9.Controls.Add(this.pictureBox141);
+            this.groupControl9.Controls.Add(this.pictureBox140);
+            this.groupControl9.Controls.Add(this.pictureBox139);
+            this.groupControl9.Controls.Add(this.pictureBox138);
+            this.groupControl9.Controls.Add(this.pictureBox137);
+            this.groupControl9.Controls.Add(this.pictureBox136);
+            this.groupControl9.Controls.Add(this.pictureBox135);
+            this.groupControl9.Controls.Add(this.pictureBox134);
+            this.groupControl9.Controls.Add(this.pictureBox133);
+            this.groupControl9.Controls.Add(this.pictureBox132);
             this.groupControl9.Controls.Add(this.labelControl51);
             this.groupControl9.Controls.Add(this.labelControl52);
             this.groupControl9.Controls.Add(this.labelControl53);
@@ -3013,7 +3058,6 @@
             this.groupControl9.Controls.Add(this.simpleButton36);
             this.groupControl9.Controls.Add(this.comboBoxEdit9);
             this.groupControl9.Controls.Add(this.labelControl25);
-            this.groupControl9.Controls.Add(this.simpleButton33);
             this.groupControl9.Controls.Add(this.pictureBox55);
             this.groupControl9.Controls.Add(this.pictureBox54);
             this.groupControl9.Controls.Add(this.pictureBox53);
@@ -3032,6 +3076,140 @@
             this.groupControl9.Size = new System.Drawing.Size(922, 405);
             this.groupControl9.TabIndex = 52;
             this.groupControl9.Visible = false;
+            // 
+            // simpleButton33
+            // 
+            this.simpleButton33.Appearance.ForeColor = System.Drawing.Color.IndianRed;
+            this.simpleButton33.Appearance.Options.UseForeColor = true;
+            this.simpleButton33.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton33.Location = new System.Drawing.Point(497, 94);
+            this.simpleButton33.Name = "simpleButton33";
+            this.simpleButton33.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton33.Size = new System.Drawing.Size(24, 17);
+            this.simpleButton33.TabIndex = 52;
+            this.simpleButton33.Text = "X";
+            this.simpleButton33.Visible = false;
+            this.simpleButton33.Click += new System.EventHandler(this.simpleButton33_Click);
+            // 
+            // pictureBox143
+            // 
+            this.pictureBox143.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox143.Image")));
+            this.pictureBox143.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox143.Name = "pictureBox143";
+            this.pictureBox143.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox143.TabIndex = 121;
+            this.pictureBox143.TabStop = false;
+            this.pictureBox143.Visible = false;
+            // 
+            // pictureBox142
+            // 
+            this.pictureBox142.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox142.Image")));
+            this.pictureBox142.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox142.Name = "pictureBox142";
+            this.pictureBox142.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox142.TabIndex = 120;
+            this.pictureBox142.TabStop = false;
+            this.pictureBox142.Visible = false;
+            // 
+            // pictureBox141
+            // 
+            this.pictureBox141.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox141.Image")));
+            this.pictureBox141.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox141.Name = "pictureBox141";
+            this.pictureBox141.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox141.TabIndex = 119;
+            this.pictureBox141.TabStop = false;
+            this.pictureBox141.Visible = false;
+            // 
+            // pictureBox140
+            // 
+            this.pictureBox140.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox140.Image")));
+            this.pictureBox140.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox140.Name = "pictureBox140";
+            this.pictureBox140.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox140.TabIndex = 118;
+            this.pictureBox140.TabStop = false;
+            this.pictureBox140.Visible = false;
+            // 
+            // pictureBox139
+            // 
+            this.pictureBox139.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox139.Image")));
+            this.pictureBox139.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox139.Name = "pictureBox139";
+            this.pictureBox139.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox139.TabIndex = 117;
+            this.pictureBox139.TabStop = false;
+            this.pictureBox139.Visible = false;
+            // 
+            // pictureBox138
+            // 
+            this.pictureBox138.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox138.Image")));
+            this.pictureBox138.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox138.Name = "pictureBox138";
+            this.pictureBox138.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox138.TabIndex = 116;
+            this.pictureBox138.TabStop = false;
+            this.pictureBox138.Visible = false;
+            // 
+            // pictureBox137
+            // 
+            this.pictureBox137.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox137.Image")));
+            this.pictureBox137.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox137.Name = "pictureBox137";
+            this.pictureBox137.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox137.TabIndex = 115;
+            this.pictureBox137.TabStop = false;
+            this.pictureBox137.Visible = false;
+            // 
+            // pictureBox136
+            // 
+            this.pictureBox136.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox136.Image")));
+            this.pictureBox136.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox136.Name = "pictureBox136";
+            this.pictureBox136.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox136.TabIndex = 114;
+            this.pictureBox136.TabStop = false;
+            this.pictureBox136.Visible = false;
+            // 
+            // pictureBox135
+            // 
+            this.pictureBox135.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox135.Image")));
+            this.pictureBox135.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox135.Name = "pictureBox135";
+            this.pictureBox135.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox135.TabIndex = 113;
+            this.pictureBox135.TabStop = false;
+            this.pictureBox135.Visible = false;
+            // 
+            // pictureBox134
+            // 
+            this.pictureBox134.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox134.Image")));
+            this.pictureBox134.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox134.Name = "pictureBox134";
+            this.pictureBox134.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox134.TabIndex = 112;
+            this.pictureBox134.TabStop = false;
+            this.pictureBox134.Visible = false;
+            // 
+            // pictureBox133
+            // 
+            this.pictureBox133.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox133.Image")));
+            this.pictureBox133.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox133.Name = "pictureBox133";
+            this.pictureBox133.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox133.TabIndex = 111;
+            this.pictureBox133.TabStop = false;
+            this.pictureBox133.Visible = false;
+            // 
+            // pictureBox132
+            // 
+            this.pictureBox132.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox132.Image")));
+            this.pictureBox132.Location = new System.Drawing.Point(100, 94);
+            this.pictureBox132.Name = "pictureBox132";
+            this.pictureBox132.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox132.TabIndex = 110;
+            this.pictureBox132.TabStop = false;
+            this.pictureBox132.Visible = false;
             // 
             // labelControl51
             // 
@@ -3120,7 +3298,19 @@
             "Rebug Dynamic",
             "The Matrix Code",
             "The President Reloaded",
-            "Weed PS3"});
+            "Weed PS3",
+            "Avenger",
+            "Far Cry 3 Blood Dragon",
+            "Metro UI Style",
+            "Mortal Kombat",
+            "PS2 Theme",
+            "Weed Leaf",
+            "PS2 Theme 2",
+            "PS4 Theme",
+            "Razer Gaming",
+            "Sky Night",
+            "Skyrim",
+            "Stranger Things"});
             this.comboBoxEdit9.Size = new System.Drawing.Size(253, 20);
             this.comboBoxEdit9.TabIndex = 58;
             this.comboBoxEdit9.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit9_SelectedIndexChanged);
@@ -3134,20 +3324,6 @@
             this.labelControl25.Size = new System.Drawing.Size(60, 13);
             this.labelControl25.TabIndex = 57;
             this.labelControl25.Text = "XMB Themes";
-            // 
-            // simpleButton33
-            // 
-            this.simpleButton33.Appearance.ForeColor = System.Drawing.Color.IndianRed;
-            this.simpleButton33.Appearance.Options.UseForeColor = true;
-            this.simpleButton33.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton33.Location = new System.Drawing.Point(498, 94);
-            this.simpleButton33.Name = "simpleButton33";
-            this.simpleButton33.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton33.Size = new System.Drawing.Size(24, 17);
-            this.simpleButton33.TabIndex = 52;
-            this.simpleButton33.Text = "X";
-            this.simpleButton33.Visible = false;
-            this.simpleButton33.Click += new System.EventHandler(this.simpleButton33_Click);
             // 
             // pictureBox55
             // 
@@ -3594,6 +3770,16 @@
             // 
             // groupControl11
             // 
+            this.groupControl11.Controls.Add(this.simpleButton41);
+            this.groupControl11.Controls.Add(this.pictureBox131);
+            this.groupControl11.Controls.Add(this.pictureBox117);
+            this.groupControl11.Controls.Add(this.pictureBox116);
+            this.groupControl11.Controls.Add(this.pictureBox115);
+            this.groupControl11.Controls.Add(this.pictureBox114);
+            this.groupControl11.Controls.Add(this.pictureBox113);
+            this.groupControl11.Controls.Add(this.pictureBox112);
+            this.groupControl11.Controls.Add(this.pictureBox111);
+            this.groupControl11.Controls.Add(this.pictureBox110);
             this.groupControl11.Controls.Add(this.labelControl55);
             this.groupControl11.Controls.Add(this.labelControl56);
             this.groupControl11.Controls.Add(this.labelControl57);
@@ -3603,7 +3789,6 @@
             this.groupControl11.Controls.Add(this.simpleButton43);
             this.groupControl11.Controls.Add(this.comboBoxEdit11);
             this.groupControl11.Controls.Add(this.labelControl27);
-            this.groupControl11.Controls.Add(this.simpleButton41);
             this.groupControl11.Controls.Add(this.pictureBox91);
             this.groupControl11.Controls.Add(this.pictureBox90);
             this.groupControl11.Controls.Add(this.pictureBox89);
@@ -3622,6 +3807,110 @@
             this.groupControl11.Size = new System.Drawing.Size(922, 405);
             this.groupControl11.TabIndex = 54;
             this.groupControl11.Visible = false;
+            // 
+            // simpleButton41
+            // 
+            this.simpleButton41.Appearance.ForeColor = System.Drawing.Color.IndianRed;
+            this.simpleButton41.Appearance.Options.UseForeColor = true;
+            this.simpleButton41.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.simpleButton41.Location = new System.Drawing.Point(480, 98);
+            this.simpleButton41.Name = "simpleButton41";
+            this.simpleButton41.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
+            this.simpleButton41.Size = new System.Drawing.Size(24, 17);
+            this.simpleButton41.TabIndex = 58;
+            this.simpleButton41.Text = "X";
+            this.simpleButton41.Visible = false;
+            this.simpleButton41.Click += new System.EventHandler(this.simpleButton41_Click);
+            // 
+            // pictureBox131
+            // 
+            this.pictureBox131.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox131.Image")));
+            this.pictureBox131.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox131.Name = "pictureBox131";
+            this.pictureBox131.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox131.TabIndex = 118;
+            this.pictureBox131.TabStop = false;
+            this.pictureBox131.Visible = false;
+            // 
+            // pictureBox117
+            // 
+            this.pictureBox117.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox117.Image")));
+            this.pictureBox117.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox117.Name = "pictureBox117";
+            this.pictureBox117.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox117.TabIndex = 117;
+            this.pictureBox117.TabStop = false;
+            this.pictureBox117.Visible = false;
+            // 
+            // pictureBox116
+            // 
+            this.pictureBox116.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox116.Image")));
+            this.pictureBox116.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox116.Name = "pictureBox116";
+            this.pictureBox116.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox116.TabIndex = 116;
+            this.pictureBox116.TabStop = false;
+            this.pictureBox116.Visible = false;
+            // 
+            // pictureBox115
+            // 
+            this.pictureBox115.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox115.Image")));
+            this.pictureBox115.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox115.Name = "pictureBox115";
+            this.pictureBox115.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox115.TabIndex = 115;
+            this.pictureBox115.TabStop = false;
+            this.pictureBox115.Visible = false;
+            // 
+            // pictureBox114
+            // 
+            this.pictureBox114.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox114.Image")));
+            this.pictureBox114.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox114.Name = "pictureBox114";
+            this.pictureBox114.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox114.TabIndex = 114;
+            this.pictureBox114.TabStop = false;
+            this.pictureBox114.Visible = false;
+            // 
+            // pictureBox113
+            // 
+            this.pictureBox113.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox113.Image")));
+            this.pictureBox113.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox113.Name = "pictureBox113";
+            this.pictureBox113.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox113.TabIndex = 113;
+            this.pictureBox113.TabStop = false;
+            this.pictureBox113.Visible = false;
+            // 
+            // pictureBox112
+            // 
+            this.pictureBox112.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox112.Image")));
+            this.pictureBox112.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox112.Name = "pictureBox112";
+            this.pictureBox112.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox112.TabIndex = 112;
+            this.pictureBox112.TabStop = false;
+            this.pictureBox112.Visible = false;
+            // 
+            // pictureBox111
+            // 
+            this.pictureBox111.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox111.Image")));
+            this.pictureBox111.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox111.Name = "pictureBox111";
+            this.pictureBox111.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox111.TabIndex = 111;
+            this.pictureBox111.TabStop = false;
+            this.pictureBox111.Visible = false;
+            // 
+            // pictureBox110
+            // 
+            this.pictureBox110.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox110.Image")));
+            this.pictureBox110.Location = new System.Drawing.Point(84, 97);
+            this.pictureBox110.Name = "pictureBox110";
+            this.pictureBox110.Size = new System.Drawing.Size(421, 238);
+            this.pictureBox110.TabIndex = 110;
+            this.pictureBox110.TabStop = false;
+            this.pictureBox110.Visible = false;
             // 
             // labelControl55
             // 
@@ -3698,19 +3987,28 @@
             this.comboBoxEdit11.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboBoxEdit11.Properties.Items.AddRange(new object[] {
-            "Anonymous ",
-            "Arch",
-            "Basic",
-            "Gloss",
-            "Hypnotic",
-            "Louise",
-            "Matrix",
-            "Metal",
-            "Network",
-            "Rebug",
-            "Saturation",
-            "Space",
-            "Ztitus"});
+            "Anonymous  Theme",
+            "Arch Theme",
+            "Basic Theme",
+            "Gloss Theme",
+            "Hypnotic Theme",
+            "Louise Theme",
+            "Matrix Theme",
+            "Metal Theme",
+            "Network Theme",
+            "Rebug Theme",
+            "Saturation Theme",
+            "Space Theme",
+            "Ztitus Theme",
+            "2k Theme",
+            "Dsot Theme",
+            "Orioto Theme",
+            "Photographic Theme",
+            "Scenic Theme",
+            "Shine Theme",
+            "Spiffy Theme",
+            "Tachyon Theme",
+            "The line Theme"});
             this.comboBoxEdit11.Size = new System.Drawing.Size(253, 20);
             this.comboBoxEdit11.TabIndex = 68;
             this.comboBoxEdit11.SelectedIndexChanged += new System.EventHandler(this.comboBoxEdit11_SelectedIndexChanged);
@@ -3724,20 +4022,6 @@
             this.labelControl27.Size = new System.Drawing.Size(84, 13);
             this.labelControl27.TabIndex = 67;
             this.labelControl27.Text = "MultiMAN Themes";
-            // 
-            // simpleButton41
-            // 
-            this.simpleButton41.Appearance.ForeColor = System.Drawing.Color.IndianRed;
-            this.simpleButton41.Appearance.Options.UseForeColor = true;
-            this.simpleButton41.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.simpleButton41.Location = new System.Drawing.Point(481, 97);
-            this.simpleButton41.Name = "simpleButton41";
-            this.simpleButton41.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.False;
-            this.simpleButton41.Size = new System.Drawing.Size(24, 17);
-            this.simpleButton41.TabIndex = 58;
-            this.simpleButton41.Text = "X";
-            this.simpleButton41.Visible = false;
-            this.simpleButton41.Click += new System.EventHandler(this.simpleButton41_Click);
             // 
             // pictureBox91
             // 
@@ -4844,20 +5128,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 522);
-            this.Controls.Add(this.groupControl6);
-            this.Controls.Add(this.groupControl7);
-            this.Controls.Add(this.groupControl11);
-            this.Controls.Add(this.groupControl10);
-            this.Controls.Add(this.groupControl13);
-            this.Controls.Add(this.groupControl15);
-            this.Controls.Add(this.groupControl12);
             this.Controls.Add(this.groupControl9);
-            this.Controls.Add(this.groupControl8);
-            this.Controls.Add(this.groupControl5);
-            this.Controls.Add(this.groupControl4);
+            this.Controls.Add(this.groupControl11);
             this.Controls.Add(this.groupControl2);
             this.Controls.Add(this.groupControl1);
+            this.Controls.Add(this.groupControl8);
+            this.Controls.Add(this.groupControl7);
+            this.Controls.Add(this.groupControl6);
+            this.Controls.Add(this.groupControl5);
+            this.Controls.Add(this.groupControl4);
+            this.Controls.Add(this.groupControl10);
             this.Controls.Add(this.groupControl14);
+            this.Controls.Add(this.groupControl13);
+            this.Controls.Add(this.groupControl12);
+            this.Controls.Add(this.groupControl15);
             this.Controls.Add(this.groupControl16);
             this.Controls.Add(this.pictureBox98);
             this.Controls.Add(this.labelControl20);
@@ -4876,7 +5160,7 @@
             this.Name = "Form1";
             this.Opacity = 0.99D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PS3 LezZo Manager Tool v2.1.0";
+            this.Text = "PS3 LezZo Manager Tool v2.1.1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
@@ -5007,6 +5291,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
             this.groupControl9.ResumeLayout(false);
             this.groupControl9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox143)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox142)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox141)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox140)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox139)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox138)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox137)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox136)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox135)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox134)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox133)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox132)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit9.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox55)).EndInit();
@@ -5049,6 +5345,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl11)).EndInit();
             this.groupControl11.ResumeLayout(false);
             this.groupControl11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox131)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox117)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox116)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox115)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox114)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox113)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox112)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox111)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox110)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl5.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox91)).EndInit();
@@ -5155,7 +5460,6 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraEditors.LabelControl labelControl15;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
@@ -5455,6 +5759,27 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton53;
         private DevExpress.XtraEditors.SimpleButton simpleButton54;
         private DevExpress.XtraEditors.SimpleButton simpleButton55;
+        private System.Windows.Forms.PictureBox pictureBox131;
+        private System.Windows.Forms.PictureBox pictureBox117;
+        private System.Windows.Forms.PictureBox pictureBox116;
+        private System.Windows.Forms.PictureBox pictureBox115;
+        private System.Windows.Forms.PictureBox pictureBox114;
+        private System.Windows.Forms.PictureBox pictureBox113;
+        private System.Windows.Forms.PictureBox pictureBox112;
+        private System.Windows.Forms.PictureBox pictureBox111;
+        private System.Windows.Forms.PictureBox pictureBox110;
+        private System.Windows.Forms.PictureBox pictureBox143;
+        private System.Windows.Forms.PictureBox pictureBox142;
+        private System.Windows.Forms.PictureBox pictureBox141;
+        private System.Windows.Forms.PictureBox pictureBox140;
+        private System.Windows.Forms.PictureBox pictureBox139;
+        private System.Windows.Forms.PictureBox pictureBox138;
+        private System.Windows.Forms.PictureBox pictureBox137;
+        private System.Windows.Forms.PictureBox pictureBox136;
+        private System.Windows.Forms.PictureBox pictureBox135;
+        private System.Windows.Forms.PictureBox pictureBox134;
+        private System.Windows.Forms.PictureBox pictureBox133;
+        private System.Windows.Forms.PictureBox pictureBox132;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager2;
     }
 }

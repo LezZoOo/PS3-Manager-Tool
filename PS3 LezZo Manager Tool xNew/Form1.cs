@@ -380,7 +380,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 WebClient wc = new WebClient();
                 var UI = wc.DownloadString(URL + ToolVersion);
                 var CL = wc.DownloadString(URL + Changelog);
-                if (UI.Contains("2.1.0"))
+                if (UI.Contains("2.1.1"))
                 {
 
                 }
@@ -420,7 +420,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
             if (CheckForInternetConnection() == true)
             {
-                if (UI.Contains("2.1.0"))
+                if (UI.Contains("2.1.1"))
                 {
                     XtraMessageBox.Show("No Updates Available for now.", "No Updates", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -1103,12 +1103,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
         {
             try
             {
-                if (!PS3M_API.ConnectTarget(txtB_Ip.Text, Convert.ToInt32(7887)))
-                {
-                    XtraMessageBox.Show("Impossible to connect, check your PS3 IP! \nNote: webMAN MOD is needed on your Console! \nOr maybe your Internet connection does not work.", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    labelControl2.Text = "PS3MAPI Not Connected";
-                }
-                else
+                if (PS3M_API.ConnectTarget(txtB_Ip.Text, Convert.ToInt32(7887)))
                 {
                     labelControl9.Text = PS3M_API.PS3.GetFirmwareVersion_Str();
                     labelControl7.Text = PS3M_API.PS3.GetFirmwareType();
@@ -1127,10 +1122,16 @@ namespace PS3_LezZo_Manager_Tool_xNew
                     textEdit5.Text = PS3M_API.PS3.GetIDPS();
                     webBrowser1.Navigate(txtB_Ip.Text);
                 }
+                else
+                {
+                    XtraMessageBox.Show("Impossible to connect :( \n\nCommon fixes: \n1. Check if the PS3 IP address is correct. \n2. Check if webMAN MOD is installed on your PS3. \n3. Check your Internet connection. PS3 and PC must be connected to the same network. \n4. Check webMAN Setup - PAD Shortcuts XMB/In-Game - Remove Syscalls - Must be ENABLED", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    labelControl2.Text = "PS3MAPI Not Connected";
+                }
             }
-            catch (Exception ex)
+            catch
             {
-                XtraMessageBox.Show(ex.Message, "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("Impossible to connect :( \n\nCommon fixes: \n1. Check if the PS3 IP address is correct. \n2. Check if webMAN MOD is installed on your PS3. \n3. Check your Internet connection. PS3 and PC must be connected to the same network. \n4. Check webMAN Setup - PAD Shortcuts XMB/In-Game - Remove Syscalls - Must be ENABLED", "Error :(", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                labelControl2.Text = "PS3MAPI Not Connected";
             }
         }
 
@@ -1237,6 +1238,10 @@ namespace PS3_LezZo_Manager_Tool_xNew
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             PS3M_API.DisconnectTarget();
+            labelControl7.Text = "...";
+            labelControl9.Text = "...";
+            labelControl11.Text = "...";
+            labelControl13.Text = "...";
             labelControl20.ForeColor = Color.White;
             labelControl1.ForeColor = Color.White;
             labelControl2.ForeColor = Color.White;
@@ -1683,11 +1688,11 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 webBrowser1.Navigate(textEdit1.Text + "/dev_blind");
                 if (!PS3M_API.IsConnected)
                 {
-                    labelControl2.Text = "FTP Connected";
+                    labelControl2.Text = " FTP Connected";
                 }
                 else
                 {
-                    labelControl2.Text = "PS3MAPI & FTP Connected";
+                    labelControl2.Text = " PS3MAPI and FTP Connected";
                 }
             }
             catch (Exception ex)
@@ -2235,6 +2240,21 @@ namespace PS3_LezZo_Manager_Tool_xNew
             labelControl56.Text = "...";
         }
 
+        public bool DoesFtpDirectoryExist(string dirPath)
+        {
+            try
+            {
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create(dirPath);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                return true;
+            }
+            catch (WebException)
+            {
+                return false;
+            }
+        }
+
         private void COPY(string source, string destination, string type)
         {
             if (IsFile(source))
@@ -2279,9 +2299,9 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 {
                     XtraMessageBox.Show("Succesfully Uploaded! :) \nYour new Theme is ready to be installed from the XMB Theme Settings :)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
-                else if (comboBoxEdit6.SelectedIndex == 7)
+                else if (comboBoxEdit6.SelectedIndex == 7 || comboBoxEdit6.SelectedIndex == 8)
                 {
-                    XtraMessageBox.Show("Succesfully Uploaded! :) \nYour new MultiMAN Theme is ready to be installed from the MultiMAN Theme Settings :)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    XtraMessageBox.Show("Succesfully Uploaded! :) \nYour new Theme is ready to be installed from the MultiMAN Theme Settings :)", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             else
@@ -2314,6 +2334,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void simpleButton27_Click(object sender, EventArgs e)
         {
+            labelControl48.Text = "Uploaded";
             if (ftpconnected == true)
             {
                 comboBoxEdit6.SelectedIndex = 5;
@@ -2321,7 +2342,6 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 if (f.ShowDialog() == DialogResult.OK)
                 {
                     COPY(f.FileName, comboBoxEdit6.Text, "App");
-                    labelControl48.Text = "Uploaded";
                 }
             }
             else
@@ -3271,14 +3291,26 @@ namespace PS3_LezZo_Manager_Tool_xNew
             pictureBox53.Visible = false;
             pictureBox54.Visible = false;
             pictureBox55.Visible = false;
+            pictureBox132.Visible = false;
+            pictureBox133.Visible = false;
+            pictureBox134.Visible = false;
+            pictureBox135.Visible = false;
+            pictureBox136.Visible = false;
+            pictureBox137.Visible = false;
+            pictureBox138.Visible = false;
+            pictureBox139.Visible = false;
+            pictureBox140.Visible = false;
+            pictureBox141.Visible = false;
+            pictureBox142.Visible = false;
+            pictureBox143.Visible = false;
             simpleButton33.Visible = false;
         }
 
         private void DownloadProgressTheme(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBarControl3.EditValue = e.ProgressPercentage;
-            labelControl51.Text = e.TotalBytesToReceive.ToString();
-            labelControl50.Text = e.BytesReceived.ToString();
+            labelControl51.Text = e.BytesReceived.ToString();
+            labelControl52.Text = e.TotalBytesToReceive.ToString();
         }
 
         private void CompletedTheme(object sender, AsyncCompletedEventArgs e)
@@ -3288,7 +3320,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 progressBarControl3.EditValue = 0;
                 iswebfree = true;
                 labelControl51.Text = "...";
-                labelControl50.Text = "...";
+                labelControl52.Text = "...";
             }
         }
 
@@ -3296,7 +3328,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
         {
             if (IsWebCFree() == true)
             {
-                labelControl53.Text = "Download";
+                labelControl53.Text = "Downloaded";
                 if (comboBoxEdit9.SelectedIndex == 0)
                 {
                     try
@@ -3504,6 +3536,198 @@ namespace PS3_LezZo_Manager_Tool_xNew
                         XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                if (comboBoxEdit9.SelectedIndex == 13)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/Avenger.p3t"), @"downloads/Avenger.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 14)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/FarCry_3_Blood_Dragon.p3t"), @"downloads/FarCry_3_Blood_Dragon.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 15)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/Metro_UI_Style.p3t"), @"downloads/Metro_UI_Style.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 16)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/MortalKombat.p3t"), @"downloads/MortalKombat.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 17)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/PlayStation_2.p3t"), @"downloads/PlayStation_2.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 18)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/potleaf.p3t"), @"downloads/Weed.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 19)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/PS2Theme.p3t"), @"downloads/PS2Theme.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 20)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/PS4_Theme.p3t"), @"downloads/PS4_Theme.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 21)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/Razer_Gaming.p3t"), @"downloads/Razer_Gaming.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 22)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/SkyNight.p3t"), @"downloads/SkyNight.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 23)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/SKYRIM.p3t"), @"downloads/Skyrim.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit9.SelectedIndex == 24)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/Themes/Stranger_Things.p3t"), @"downloads/Stranger_Things.p3t");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
@@ -3519,7 +3743,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 OpenFileDialog f = new OpenFileDialog();
                 if (f.ShowDialog() == DialogResult.OK)
                 {
-                    labelControl53.Text = "Upload";
+                    labelControl53.Text = "Uploaded";
                     COPY(f.FileName, comboBoxEdit6.Text, "Theme");
                 }
             }
@@ -4323,6 +4547,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 1)
             {
@@ -4340,6 +4576,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 2)
             {
@@ -4357,6 +4605,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 3)
             {
@@ -4374,6 +4634,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 4)
             {
@@ -4391,6 +4663,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 5)
             {
@@ -4408,6 +4692,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 6)
             {
@@ -4425,6 +4721,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 7)
             {
@@ -4442,6 +4750,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 8)
             {
@@ -4459,6 +4779,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 9)
             {
@@ -4476,6 +4808,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 10)
             {
@@ -4493,6 +4837,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = true;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 11)
             {
@@ -4510,6 +4866,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = true;
                 pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
             }
             if (comboBoxEdit9.SelectedIndex == 12)
             {
@@ -4527,6 +4895,366 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox53.Visible = false;
                 pictureBox54.Visible = false;
                 pictureBox55.Visible = true;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 13)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = true;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 14)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = true;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 15)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = true;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 16)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = true;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 17)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = true;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 18)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = true;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 19)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = true;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 20)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = true;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 21)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = true;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 22)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = true;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 23)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = true;
+                pictureBox143.Visible = false;
+            }
+            if (comboBoxEdit9.SelectedIndex == 24)
+            {
+                simpleButton33.Visible = true;
+                pictureBox43.Visible = false;
+                pictureBox44.Visible = false;
+                pictureBox45.Visible = false;
+                pictureBox46.Visible = false;
+                pictureBox47.Visible = false;
+                pictureBox48.Visible = false;
+                pictureBox49.Visible = false;
+                pictureBox50.Visible = false;
+                pictureBox51.Visible = false;
+                pictureBox52.Visible = false;
+                pictureBox53.Visible = false;
+                pictureBox54.Visible = false;
+                pictureBox55.Visible = false;
+                pictureBox132.Visible = false;
+                pictureBox133.Visible = false;
+                pictureBox134.Visible = false;
+                pictureBox135.Visible = false;
+                pictureBox136.Visible = false;
+                pictureBox137.Visible = false;
+                pictureBox138.Visible = false;
+                pictureBox139.Visible = false;
+                pictureBox140.Visible = false;
+                pictureBox141.Visible = false;
+                pictureBox142.Visible = false;
+                pictureBox143.Visible = true;
             }
         }
 
@@ -6783,7 +7511,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
 
         private void simpleButton41_Click(object sender, EventArgs e)
         {
-            simpleButton10.Visible = false;
+            simpleButton41.Visible = false;
             pictureBox79.Visible = false;
             pictureBox80.Visible = false;
             pictureBox81.Visible = false;
@@ -6797,233 +7525,18 @@ namespace PS3_LezZo_Manager_Tool_xNew
             pictureBox89.Visible = false;
             pictureBox90.Visible = false;
             pictureBox91.Visible = false;
+            pictureBox110.Visible = false;
+            pictureBox111.Visible = false;
+            pictureBox112.Visible = false;
+            pictureBox113.Visible = false;
+            pictureBox114.Visible = false;
+            pictureBox115.Visible = false;
+            pictureBox116.Visible = false;
+            pictureBox117.Visible = false;
+            pictureBox131.Visible = false;
         }
 
-        private void comboBoxEdit4_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxEdit4.SelectedIndex == 0)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = true;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 1)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = true;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 2)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = true;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 3)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = true;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 4)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = true;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 5)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = true;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 6)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = true;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 7)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = true;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 8)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = true;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 9)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = true;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 10)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = true;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 11)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = true;
-                pictureBox91.Visible = false;
-            }
-            if (comboBoxEdit4.SelectedIndex == 12)
-            {
-                simpleButton41.Visible = true;
-                pictureBox79.Visible = false;
-                pictureBox80.Visible = false;
-                pictureBox81.Visible = false;
-                pictureBox82.Visible = false;
-                pictureBox83.Visible = false;
-                pictureBox84.Visible = false;
-                pictureBox85.Visible = false;
-                pictureBox86.Visible = false;
-                pictureBox87.Visible = false;
-                pictureBox88.Visible = false;
-                pictureBox89.Visible = false;
-                pictureBox90.Visible = false;
-                pictureBox91.Visible = true;
-            }
-        }
-
+        
         private void comboBoxEdit11_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxEdit11.SelectedIndex == 0)
@@ -7042,6 +7555,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 1)
             {
@@ -7059,6 +7581,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 2)
             {
@@ -7076,6 +7607,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 3)
             {
@@ -7093,6 +7633,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 4)
             {
@@ -7110,6 +7659,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 5)
             {
@@ -7127,6 +7685,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 6)
             {
@@ -7144,6 +7711,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 7)
             {
@@ -7161,6 +7737,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 8)
             {
@@ -7178,6 +7763,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 9)
             {
@@ -7195,6 +7789,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 10)
             {
@@ -7212,6 +7815,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = true;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 11)
             {
@@ -7229,6 +7841,15 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = true;
                 pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
             }
             if (comboBoxEdit11.SelectedIndex == 12)
             {
@@ -7246,14 +7867,257 @@ namespace PS3_LezZo_Manager_Tool_xNew
                 pictureBox89.Visible = false;
                 pictureBox90.Visible = false;
                 pictureBox91.Visible = true;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 13)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = true;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 14)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = true;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 15)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = true;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 16)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = true;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 17)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = true;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 18)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = true;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 19)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = true;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 20)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = true;
+                pictureBox131.Visible = false;
+            }
+            if (comboBoxEdit11.SelectedIndex == 21)
+            {
+                simpleButton41.Visible = true;
+                pictureBox79.Visible = false;
+                pictureBox80.Visible = false;
+                pictureBox81.Visible = false;
+                pictureBox82.Visible = false;
+                pictureBox83.Visible = false;
+                pictureBox84.Visible = false;
+                pictureBox85.Visible = false;
+                pictureBox86.Visible = false;
+                pictureBox87.Visible = false;
+                pictureBox88.Visible = false;
+                pictureBox89.Visible = false;
+                pictureBox90.Visible = false;
+                pictureBox91.Visible = false;
+                pictureBox110.Visible = false;
+                pictureBox111.Visible = false;
+                pictureBox112.Visible = false;
+                pictureBox113.Visible = false;
+                pictureBox114.Visible = false;
+                pictureBox115.Visible = false;
+                pictureBox116.Visible = false;
+                pictureBox117.Visible = false;
+                pictureBox131.Visible = true;
             }
         }
 
         private void DownloadProgressmmTheme(object sender, DownloadProgressChangedEventArgs e)
         {
             progressBarControl5.EditValue = e.ProgressPercentage;
-            labelControl56.Text = e.TotalBytesToReceive.ToString();
             labelControl55.Text = e.BytesReceived.ToString();
+            labelControl56.Text = e.TotalBytesToReceive.ToString();
         }
 
         private void CompletedmmTheme(object sender, AsyncCompletedEventArgs e)
@@ -7262,8 +8126,8 @@ namespace PS3_LezZo_Manager_Tool_xNew
             {
                 progressBarControl5.EditValue = 0;
                 iswebfree = true;
-                labelControl56.Text = "...";
                 labelControl55.Text = "...";
+                labelControl56.Text = "...";
             }
         }
 
@@ -7271,7 +8135,7 @@ namespace PS3_LezZo_Manager_Tool_xNew
         {
             if (IsWebCFree() == true)
             {
-                labelControl57.Text = "Download";
+                labelControl57.Text = "Downloaded";
                 if (comboBoxEdit11.SelectedIndex == 0)
                 {
                     try
@@ -7479,6 +8343,150 @@ namespace PS3_LezZo_Manager_Tool_xNew
                         XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+
+                if (comboBoxEdit11.SelectedIndex == 13)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-2k.thm"), @"downloads/mmCM-2k.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 14)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-DSOT.thm"), @"downloads/mmCM-DSOT.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 15)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-orioto.thm"), @"downloads/mmCM-orioto.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 16)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-photographic.thm"), @"downloads/mmCM-photographic.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 17)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-scenic.thm"), @"downloads/mmCM-scenic.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 18)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-shine.thm"), @"downloads/mmCM-shine.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 19)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-spiffy.thm"), @"downloads/mmCM-spiffy.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 20)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-tachyon.thm"), @"downloads/mmCM-tachyon.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                if (comboBoxEdit11.SelectedIndex == 21)
+                {
+                    try
+                    {
+                        iswebfree = false;
+                        WebClient webClient = new WebClient();
+                        webClient.DownloadFileCompleted += new AsyncCompletedEventHandler(CompletedmmTheme);
+                        webClient.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressmmTheme);
+                        webClient.DownloadFileAsync(new Uri("https://www.cybermodding.it/Manager_Tool/mm_theme/mmCM-the_line_2.thm"), @"downloads/mmCM-the_line_2.thm");
+                    }
+                    catch (Exception ex)
+                    {
+                        XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
             else
             {
@@ -7490,12 +8498,30 @@ namespace PS3_LezZo_Manager_Tool_xNew
         {
             if (ftpconnected == true)
             {
-                comboBoxEdit6.SelectedIndex = 7;
-                OpenFileDialog f = new OpenFileDialog();
-                if (f.ShowDialog() == DialogResult.OK)
+                if (DoesFtpDirectoryExist("ftp://" + textEdit1.Text + "/dev_hdd0/game/BLES80608/USRDIR/themes"))
                 {
-                    labelControl53.Text = "Upload";
-                    COPY(f.FileName, comboBoxEdit6.Text, "MMTheme");
+                    comboBoxEdit6.SelectedIndex = 7;
+                    OpenFileDialog f = new OpenFileDialog();
+                    if (f.ShowDialog() == DialogResult.OK)
+                    {
+                        labelControl57.Text = "Uploaded";
+                        COPY(f.FileName, comboBoxEdit6.Text, "MMTheme");
+                    
+                    }
+                }
+                else if (DoesFtpDirectoryExist("ftp://" + textEdit1.Text + "/dev_hdd0/game/NPEA00374/USRDIR/themes"))
+                {
+                    comboBoxEdit6.SelectedIndex = 8;
+                    OpenFileDialog f = new OpenFileDialog();
+                    if (f.ShowDialog() == DialogResult.OK)
+                    {
+                        labelControl57.Text = "Uploaded";
+                        COPY(f.FileName, comboBoxEdit6.Text, "MMTheme");
+                    }
+                }
+                else
+                {
+                    XtraMessageBox.Show("MultiMAN not installed on your PS3. \nCannot upload the theme..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
